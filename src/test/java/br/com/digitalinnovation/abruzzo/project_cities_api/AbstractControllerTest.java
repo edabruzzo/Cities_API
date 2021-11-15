@@ -18,10 +18,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = ProjectCitiesApiApplication.class)
+@SpringBootTest(classes = ProjectCitiesApiApplicationTests.class)
 @WebAppConfiguration
 public abstract class AbstractControllerTest {
+
     protected MockMvc mvc;
+
     @Autowired
     WebApplicationContext webApplicationContext;
 

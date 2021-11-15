@@ -4,8 +4,8 @@
  */
 package br.com.digitalinnovation.abruzzo.project_cities_api.controller;
 
-import br.com.digitalinnovation.abruzzo.project_cities_api.DAO.CountryRepository;
-import br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Country;
+import br.com.digitalinnovation.abruzzo.project_cities_api.DAO.StateRepository;
+import br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Estado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -20,20 +20,20 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping({"/countries"})
-public class CountryController {
+@RequestMapping({"/states"})
+public class StateController {
 
     @Autowired
-    private CountryRepository repository;
+    private StateRepository repository;
 
     @GetMapping
-    public Page<Country> findAll(Pageable pageable) {
-        return (Page<Country>) this.repository.findAll(pageable);
+    public Page<Estado> findAll(Pageable pageable) {
+        return (Page<Estado>) this.repository.findAll(pageable);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findCountryById(@PathVariable Long id) {
-        Optional<Country> optional = this.repository.findById(id);
+    public ResponseEntity findEstateById(@PathVariable Long id) {
+        Optional<Estado> optional = this.repository.findById(id);
         if (optional.isPresent()) return ResponseEntity.ok().body(optional.get());
         else return (ResponseEntity) ResponseEntity.notFound().build();
     }

@@ -8,10 +8,10 @@ package br.com.digitalinnovation.abruzzo.project_cities_api.model;
 //import com.vividsolutions.jts.geom.Point;
 
 
-import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
-import org.springframework.data.geo.Point;
+import org.locationtech.jts.geom.Geometry;
+
 
 
 import java.io.Serializable;
@@ -32,9 +32,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "cidade", catalog = "cities", schema = "public")
-@TypeDefs(value = {
-        @TypeDef(name = "point", typeClass = PointType.class)
-})
 @NamedQueries({
     @NamedQuery(name = "Cidade.findAll", query = "SELECT c FROM Cidade c"),
     @NamedQuery(name = "Cidade.findById", query = "SELECT c FROM Cidade c WHERE c.id = :id"),
@@ -65,14 +62,8 @@ public class Cidade implements Serializable {
     @Column(name = "ibge")
     private Integer ibge;
 
-    // 1st
-    @Column(name = "lat_lon")
-    private String geolocation;
-
-    // 2nd
-    @Type(type = "point")
     @Column(name = "lat_lon", updatable = false, insertable = false)
-    private Point location;
+    private Geometry location;
 
 
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -118,19 +109,11 @@ public class Cidade implements Serializable {
         this.ibge = ibge;
     }
 
-    public String getGeolocation() {
-        return geolocation;
-    }
-
-    public void setGeolocation(String geolocation) {
-        this.geolocation = geolocation;
-    }
-
-    public Point getLocation() {
+    public Geometry getLocation() {
         return location;
     }
 
-    public void setLocation(Point location) {
+    public void setLocation(Geometry location) {
         this.location = location;
     }
 
@@ -159,29 +142,17 @@ public class Cidade implements Serializable {
     }
 
 
-    public Cidade(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location, Double latitude, Double longitude, Short codTom) {
-        this.id = id;
-        this.nome = nome;
-        this.uf = uf;
-        this.ibge = ibge;
-        this.geolocation = geolocation;
-        this.location = location;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.codTom = codTom;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cidade cidade = (Cidade) o;
-        return Objects.equals(id, cidade.id) && Objects.equals(nome, cidade.nome) && Objects.equals(uf, cidade.uf) && Objects.equals(ibge, cidade.ibge) && Objects.equals(geolocation, cidade.geolocation) && Objects.equals(location, cidade.location) && Objects.equals(latitude, cidade.latitude) && Objects.equals(longitude, cidade.longitude) && Objects.equals(codTom, cidade.codTom);
+        return Objects.equals(id, cidade.id) && Objects.equals(nome, cidade.nome) && Objects.equals(uf, cidade.uf) && Objects.equals(ibge, cidade.ibge) && Objects.equals(location, cidade.location) && Objects.equals(latitude, cidade.latitude) && Objects.equals(longitude, cidade.longitude) && Objects.equals(codTom, cidade.codTom);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, uf, ibge, geolocation, location, latitude, longitude, codTom);
+        return Objects.hash(id, nome, uf, ibge, location, latitude, longitude, codTom);
     }
 
 
@@ -192,11 +163,21 @@ public class Cidade implements Serializable {
                 ", nome='" + nome + '\'' +
                 ", uf=" + uf +
                 ", ibge=" + ibge +
-                ", geolocation='" + geolocation + '\'' +
                 ", location=" + location +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", codTom=" + codTom +
                 '}';
+    }
+
+    public Cidade(Long id, String nome, Integer uf, Integer ibge, Geometry location, Double latitude, Double longitude, Short codTom) {
+        this.id = id;
+        this.nome = nome;
+        this.uf = uf;
+        this.ibge = ibge;
+        this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.codTom = codTom;
     }
 }

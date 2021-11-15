@@ -5,12 +5,13 @@
 package br.com.digitalinnovation.abruzzo.project_cities_api.controller;
 
 import br.com.digitalinnovation.abruzzo.project_cities_api.DAO.CountryRepository;
-import br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Pais;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Country;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+
+import java.util.Optional;
 
 /**
  *
@@ -28,9 +29,14 @@ public class CountryController {
     }
 
     @GetMapping
-    public List<Pais> findAll(){
-
-        return repository.findAll();
-
+    public Page<Country> findAll(Pageable pageable){
+        return (Page<Country>) repository.findAll(pageable);
     }
+
+    @GetMapping("/{id}")
+    public Country findCountryById(@PathVariable Long id){
+        Optional<Country> optional = Optional.of(repository.getById(id));
+        return optional.get();
+    }
+
 }

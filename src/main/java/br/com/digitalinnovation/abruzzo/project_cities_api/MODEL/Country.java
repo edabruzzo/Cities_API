@@ -22,13 +22,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pais", catalog = "cities", schema = "public")
 @NamedQueries({
-    @NamedQuery(name = "Pais.findAll", query = "SELECT p FROM Pais p"),
-    @NamedQuery(name = "Pais.findById", query = "SELECT p FROM Pais p WHERE p.id = :id"),
-    @NamedQuery(name = "Pais.findByNome", query = "SELECT p FROM Pais p WHERE p.nome = :nome"),
-    @NamedQuery(name = "Pais.findByNomePt", query = "SELECT p FROM Pais p WHERE p.nomePt = :nomePt"),
-    @NamedQuery(name = "Pais.findBySigla", query = "SELECT p FROM Pais p WHERE p.sigla = :sigla"),
-    @NamedQuery(name = "Pais.findByBacen", query = "SELECT p FROM Pais p WHERE p.bacen = :bacen")})
-public class Pais implements Serializable {
+    @NamedQuery(name = "Country.findAll", query = "SELECT p FROM Country p"),
+    @NamedQuery(name = "Country.findById", query = "SELECT p FROM Country p WHERE p.id = :id"),
+    @NamedQuery(name = "Country.findByNome", query = "SELECT p FROM Country p WHERE p.nome = :nome"),
+    @NamedQuery(name = "Country.findByNomePt", query = "SELECT p FROM Country p WHERE p.nomePt = :nomePt"),
+    @NamedQuery(name = "Country.findBySigla", query = "SELECT p FROM Country p WHERE p.sigla = :sigla"),
+    @NamedQuery(name = "Country.findByBacen", query = "SELECT p FROM Country p WHERE p.bacen = :bacen")})
+public class Country implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,10 +49,18 @@ public class Pais implements Serializable {
     @Column(name = "bacen")
     private Integer bacen;
 
-    public Pais() {
+    public Country(Long id, String nome, String nomePt, String sigla, Integer bacen) {
+        this.id = id;
+        this.nome = nome;
+        this.nomePt = nomePt;
+        this.sigla = sigla;
+        this.bacen = bacen;
     }
 
-    public Pais(Long id) {
+    public Country() {
+    }
+
+    public Country(Long id) {
         this.id = id;
     }
 
@@ -106,10 +114,10 @@ public class Pais implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Pais)) {
+        if (!(object instanceof Country)) {
             return false;
         }
-        Pais other = (Pais) object;
+        Country other = (Country) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -118,7 +126,7 @@ public class Pais implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Pais[ id=" + id + " ]";
+        return "br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Country[ id=" + id + " ]";
     }
     
 }

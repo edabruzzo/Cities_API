@@ -4,12 +4,12 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Estado</class>
     <class>br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Cidade</class>
-    <class>br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Pais</class>
+    <class>br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Country</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/cities"/>
-      <property name="javax.persistence.jdbc.user" value="postgres_user_city"/>
+      <property name="javax.persistence.jdbc.user" value="<USER>"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="super_password"/>
+      <property name="javax.persistence.jdbc.password" value="<PASSWORD>"/>
     </properties>
   </persistence-unit>
 </persistence>

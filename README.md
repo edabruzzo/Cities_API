@@ -26,17 +26,17 @@ docker run --name cities-db -d -p 5432:5432 -e POSTGRES_USER=postgres_user_city 
 
 #### Atenção ! Se você possui o Postgresql instalado na maquina local das duas uma:
 1) Terá que parar o serviço do postgres que roda na porta 5432 antes de rodar a imagem docker
+```shell script
+/etc/init.d/postgres stop
+```
 
-2) Mudar a porta exposta pela imagem para não mapear a 5432 que já estará em uso no seu banco local
+3) Mudar a porta exposta pela imagem para não mapear a 5432 que já estará em uso no seu banco local
 
 
 ```shell script
 cd ~/workspace/sql-paises-estados-cidades/PostgreSQL
 
-# Parar eventual instância local do Postgres usando a porta 5432
-/etc/init.d/postgresql stop
-
-docker run -it --rm --net=host -v $PWD:/tmp postgres /bin/bash
+/etc/init.d/postgresql stop && docker run -it --rm --net=host -v $PWD:/tmp postgres /bin/bash
 
 cd tmp/ && for file in *.sql; do psql -U postgres_user_city -h localhost -p 5432 -d cities -f $file; done
 

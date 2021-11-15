@@ -33,3 +33,8 @@ build/
 .vscode/
 /REFERENCIAS.txt
 /nbactions.xml
+
+
+### ARQUIVOS_CONFIGURACAO_COM_SENHAS ####
+src/main/resources/META-INF/persistence.xml
+src/main/resources/application.properties

@@ -45,8 +45,8 @@ public class Estado implements Serializable {
     
     @Column(name = "pais")
     private Integer pais;
-    
-    @Lob
+
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "ddd")
     @Basic(fetch = FetchType.LAZY)
     private Object ddd;

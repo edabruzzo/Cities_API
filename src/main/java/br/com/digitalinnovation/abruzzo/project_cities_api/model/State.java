@@ -16,13 +16,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "estado", catalog = "cities", schema = "public")
 @NamedQueries({
-    @NamedQuery(name = "Estado.findAll", query = "SELECT e FROM Estado e"),
-    @NamedQuery(name = "Estado.findById", query = "SELECT e FROM Estado e WHERE e.id = :id"),
-    @NamedQuery(name = "Estado.findByNome", query = "SELECT e FROM Estado e WHERE e.nome = :nome"),
-    @NamedQuery(name = "Estado.findByUf", query = "SELECT e FROM Estado e WHERE e.uf = :uf"),
-    @NamedQuery(name = "Estado.findByIbge", query = "SELECT e FROM Estado e WHERE e.ibge = :ibge"),
-    @NamedQuery(name = "Estado.findByPais", query = "SELECT e FROM Estado e WHERE e.pais = :pais")})
-public class Estado implements Serializable {
+    @NamedQuery(name = "State.findAll", query = "SELECT e FROM State e"),
+    @NamedQuery(name = "State.findById", query = "SELECT e FROM State e WHERE e.id = :id"),
+    @NamedQuery(name = "State.findByNome", query = "SELECT e FROM State e WHERE e.nome = :nome"),
+    @NamedQuery(name = "State.findByUf", query = "SELECT e FROM State e WHERE e.uf = :uf"),
+    @NamedQuery(name = "State.findByIbge", query = "SELECT e FROM State e WHERE e.ibge = :ibge"),
+    @NamedQuery(name = "State.findByPais", query = "SELECT e FROM State e WHERE e.pais = :pais")})
+public class State implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -51,10 +51,10 @@ public class Estado implements Serializable {
     private Object ddd;
     
 
-    public Estado() {
+    public State() {
     }
 
-    public Estado(Long id) {
+    public State(Long id) {
         this.id = id;
     }
 
@@ -117,10 +117,10 @@ public class Estado implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Estado)) {
+        if (!(object instanceof State)) {
             return false;
         }
-        Estado other = (Estado) object;
+        State other = (State) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

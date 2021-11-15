@@ -32,18 +32,21 @@ docker run --name cities-db -d -p 5432:5432 -e POSTGRES_USER=postgres_user_city 
 
 3) Mudar a porta exposta pela imagem para não mapear a 5432 que já estará em uso no seu banco local
 
+#### Escrevi um artigo na DIO a respeito do conflito de portas:
++ https://digitalinnovation.one/artigos/avoid-port-conflicts-when-configuring-postgresql-image-from-docker-on-your-local-machine-with-another-postgresql-instance
+
 
 ```shell script
-cd ~/workspace/sql-paises-estados-cidades/PostgreSQL
-
-/etc/init.d/postgresql stop && docker run -it --rm --net=host -v $PWD:/tmp postgres /bin/bash
+cd /home/$USER/NetBeansProjects/DigitalOne_2/project_cities_api/scripts/PostgreSQL &&
+/etc/init.d/postgresql stop && sudo docker run -it --rm --net=host -v $PWD:/tmp postgres /bin/bash
 
 cd tmp/ && for file in *.sql; do psql -U postgres_user_city -h localhost -p 5432 -d cities -f $file; done
 
 psql -h localhost -U postgres_user_city cities
 
-CREATE EXTENSION cube; 
-CREATE EXTENSION earthdistance;
+# Transportadas para um arquivo *.sql para serem executadas no loop for acima
+--CREATE EXTENSION cube; 
+--CREATE EXTENSION earthdistance;
 ```
 
 * [Postgres Earth distance](https://www.postgresql.org/docs/current/earthdistance.html)
@@ -166,3 +169,13 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 + https://stackoverflow.com/questions/31440496/hibernate-spatial-5-geometrytype
 + https://github.com/Wisienkas/springJpaGeo
 + https://www.postgresql.org/docs/12/functions-geometry.html
+
+#### USANDO NamedQueries ou NamedNativeQueries COM SPRING DATA
++ https://thorben-janssen.com/spring-data-jpa-named-queries/
++ https://howtodoinjava.com/jpa/jpa-native-query-example-select/
++ https://zetcode.com/springboot/datajpanamedquery/
+
+
+#### INTERCEPTORS SPRING X CDI 
++ https://rhuanrocha.net/2019/01/06/creating-logger-with-aop-using-cdi-interceptor/
++ https://www.tutorialspoint.com/spring_boot/spring_boot_interceptor.htm

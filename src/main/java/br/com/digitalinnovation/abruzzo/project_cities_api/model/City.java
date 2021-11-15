@@ -13,40 +13,19 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 import org.springframework.data.geo.Point;
 
-
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 /**
- *
  * @author emmanuel
  */
 @Entity
 @Table(name = "cidade", catalog = "cities", schema = "public")
-@TypeDefs(value = {
-        @TypeDef(name = "point", typeClass = PointType.class)
-})
-@NamedQueries({
-    @NamedQuery(name = "Cidade.findAll", query = "SELECT c FROM Cidade c"),
-    @NamedQuery(name = "Cidade.findById", query = "SELECT c FROM Cidade c WHERE c.id = :id"),
-    @NamedQuery(name = "Cidade.findByNome", query = "SELECT c FROM Cidade c WHERE c.nome = :nome"),
-    @NamedQuery(name = "Cidade.findByUf", query = "SELECT c FROM Cidade c WHERE c.uf = :uf"),
-    @NamedQuery(name = "Cidade.findByIbge", query = "SELECT c FROM Cidade c WHERE c.ibge = :ibge"),
-    @NamedQuery(name = "Cidade.findByLatitude", query = "SELECT c FROM Cidade c WHERE c.latitude = :latitude"),
-    @NamedQuery(name = "Cidade.findByLongitude", query = "SELECT c FROM Cidade c WHERE c.longitude = :longitude"),
-    @NamedQuery(name = "Cidade.findByCodTom", query = "SELECT c FROM Cidade c WHERE c.codTom = :codTom")})
-public class Cidade implements Serializable {
+@TypeDefs(value = {@TypeDef(name = "point", typeClass = PointType.class)})
+public class City implements Serializable {
 
-    public Cidade() {
+    public City() {
     }
 
     private static final long serialVersionUID = 1L;
@@ -55,13 +34,13 @@ public class Cidade implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    
+
     @Column(name = "nome")
     private String nome;
-    
+
     @Column(name = "uf")
     private Integer uf;
-    
+
     @Column(name = "ibge")
     private Integer ibge;
 
@@ -78,10 +57,10 @@ public class Cidade implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "latitude")
     private Double latitude;
-    
+
     @Column(name = "longitude")
     private Double longitude;
-    
+
     @Column(name = "cod_tom")
     private Short codTom;
 
@@ -159,7 +138,7 @@ public class Cidade implements Serializable {
     }
 
 
-    public Cidade(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location, Double latitude, Double longitude, Short codTom) {
+    public City(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location, Double latitude, Double longitude, Short codTom) {
         this.id = id;
         this.nome = nome;
         this.uf = uf;
@@ -175,7 +154,7 @@ public class Cidade implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Cidade cidade = (Cidade) o;
+        City cidade = (City) o;
         return Objects.equals(id, cidade.id) && Objects.equals(nome, cidade.nome) && Objects.equals(uf, cidade.uf) && Objects.equals(ibge, cidade.ibge) && Objects.equals(geolocation, cidade.geolocation) && Objects.equals(location, cidade.location) && Objects.equals(latitude, cidade.latitude) && Objects.equals(longitude, cidade.longitude) && Objects.equals(codTom, cidade.codTom);
     }
 

@@ -5,7 +5,7 @@
 package br.com.digitalinnovation.abruzzo.project_cities_api.controller;
 
 import br.com.digitalinnovation.abruzzo.project_cities_api.dao.StateRepository;
-import br.com.digitalinnovation.abruzzo.project_cities_api.model.Estado;
+import br.com.digitalinnovation.abruzzo.project_cities_api.model.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -27,13 +27,13 @@ public class StateController {
     private StateRepository repository;
 
     @GetMapping
-    public Page<Estado> findAll(Pageable pageable) {
-        return (Page<Estado>) this.repository.findAll(pageable);
+    public Page<State> findAll(Pageable pageable) {
+        return (Page<State>) this.repository.findAll(pageable);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity findEstateById(@PathVariable Long id) {
-        Optional<Estado> optional = this.repository.findById(id);
+        Optional<State> optional = this.repository.findById(id);
         if (optional.isPresent()) return ResponseEntity.ok().body(optional.get());
         else return (ResponseEntity) ResponseEntity.notFound().build();
     }

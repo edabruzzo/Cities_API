@@ -169,3 +169,13 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 + https://stackoverflow.com/questions/31440496/hibernate-spatial-5-geometrytype
 + https://github.com/Wisienkas/springJpaGeo
 + https://www.postgresql.org/docs/12/functions-geometry.html
+
+#### USANDO NamedQueries ou NamedNativeQueries COM SPRING DATA
++ https://thorben-janssen.com/spring-data-jpa-named-queries/
++ https://howtodoinjava.com/jpa/jpa-native-query-example-select/
++ https://zetcode.com/springboot/datajpanamedquery/
+
+
+#### INTERCEPTORS SPRING X CDI 
++ https://rhuanrocha.net/2019/01/06/creating-logger-with-aop-using-cdi-interceptor/
++ https://www.tutorialspoint.com/spring_boot/spring_boot_interceptor.htm

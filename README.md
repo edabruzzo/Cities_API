@@ -121,3 +121,48 @@ select earth_distance(
 ```shell script
 wget https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
 ```
+
+### OUTRAS REFERÊNCIAS ÚTEIS
+
+#### SPRING REST APPLICATION
++  https://www.oracle.com/br/technical-resources/articles/dsl/crud-rest-sb2-hibernate.html
++  https://spring.io/guides/gs/rest-service/
++  https://spring.io/guides
++  https://www.tutorialspoint.com/spring/calling_stored_procedure.htm
++  https://www.tutorialspoint.com/spring_boot/spring_boot_consuming_restful_web_services.htm
+
+
+#### GIT PULL-REQUEST TUTORIAL
++ https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github
+
+#### Discussão sobre injeção de dependência
++ https://www.oracle.com/br/technical-resources/articles/dsl/crud-rest-sb2-hibernate.html
+
++ "O Spring automaticamente fornece a injeção de dependência. Este exemplo não está usando a anotação @Autowired pois não é mais considerado
+uma boa prática para injeção de dependência de atributos obrigatórios. Desde a versão 4 do
+Spring a prática recomendada é o uso de injeção de dependência por construtor
+(as IDEs mais modernas inclusive apresentam um alerta quando fazemos o uso do @Autowired)."
+
+
+#### SHELL JAVA
++ https://stackabuse.com/executing-shell-commands-with-java/
+
+
+#### STRING FORMAT
++ https://www.javatpoint.com/java-string-format
+
+
+#### TESTE SPRING
++ https://spring.io/guides/gs/testing-web/
++ https://www.baeldung.com/spring-boot-testing
++ https://www.bezkoder.com/spring-boot-unit-test-jpa-repo-datajpatest/
++ https://www.tutorialspoint.com/spring_boot/spring_boot_rest_controller_unit_test.htm
+
+
+#### GEOMAPPING - POSTGRESQL X HIBERNATE
++ https://stackoverflow.com/questions/27624940/map-a-postgis-geometry-point-field-with-hibernate-on-spring-boot
++ https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#spatial 
++ https://www.baeldung.com/hibernate-spatial
++ https://stackoverflow.com/questions/31440496/hibernate-spatial-5-geometrytype
++ https://github.com/Wisienkas/springJpaGeo
++ https://www.postgresql.org/docs/12/functions-geometry.html

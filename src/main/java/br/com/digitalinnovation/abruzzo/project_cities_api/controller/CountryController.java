@@ -4,8 +4,8 @@
  */
 package br.com.digitalinnovation.abruzzo.project_cities_api.controller;
 
-import br.com.digitalinnovation.abruzzo.project_cities_api.DAO.CountryRepository;
-import br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Country;
+import br.com.digitalinnovation.abruzzo.project_cities_api.dao.CountryRepository;
+import br.com.digitalinnovation.abruzzo.project_cities_api.model.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

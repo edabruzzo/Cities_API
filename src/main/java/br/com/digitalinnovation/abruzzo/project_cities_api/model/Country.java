@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.digitalinnovation.abruzzo.project_cities_api.MODEL;
+package br.com.digitalinnovation.abruzzo.project_cities_api.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;

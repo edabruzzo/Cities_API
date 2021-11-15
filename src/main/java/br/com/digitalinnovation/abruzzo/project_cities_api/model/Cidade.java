@@ -2,16 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.digitalinnovation.abruzzo.project_cities_api.MODEL;
+package br.com.digitalinnovation.abruzzo.project_cities_api.model;
+
+// https://stackoverflow.com/questions/31440496/hibernate-spatial-5-geometrytype
+//import com.vividsolutions.jts.geom.Point;
+
+
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
+import org.springframework.data.geo.Point;
+
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -22,6 +32,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "cidade", catalog = "cities", schema = "public")
+@TypeDefs(value = {
+        @TypeDef(name = "point", typeClass = PointType.class)
+})
 @NamedQueries({
     @NamedQuery(name = "Cidade.findAll", query = "SELECT c FROM Cidade c"),
     @NamedQuery(name = "Cidade.findById", query = "SELECT c FROM Cidade c WHERE c.id = :id"),
@@ -32,6 +45,9 @@ import javax.persistence.Table;
     @NamedQuery(name = "Cidade.findByLongitude", query = "SELECT c FROM Cidade c WHERE c.longitude = :longitude"),
     @NamedQuery(name = "Cidade.findByCodTom", query = "SELECT c FROM Cidade c WHERE c.codTom = :codTom")})
 public class Cidade implements Serializable {
+
+    public Cidade() {
+    }
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,11 +64,17 @@ public class Cidade implements Serializable {
     
     @Column(name = "ibge")
     private Integer ibge;
-    
-    @Lob
+
+    // 1st
     @Column(name = "lat_lon")
-    private Object latLon;
-    
+    private String geolocation;
+
+    // 2nd
+    @Type(type = "point")
+    @Column(name = "lat_lon", updatable = false, insertable = false)
+    private Point location;
+
+
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "latitude")
     private Double latitude;
@@ -62,14 +84,7 @@ public class Cidade implements Serializable {
     
     @Column(name = "cod_tom")
     private Short codTom;
-    
 
-    public Cidade() {
-    }
-
-    public Cidade(Long id) {
-        this.id = id;
-    }
 
     public Long getId() {
         return id;
@@ -103,12 +118,20 @@ public class Cidade implements Serializable {
         this.ibge = ibge;
     }
 
-    public Object getLatLon() {
-        return latLon;
+    public String getGeolocation() {
+        return geolocation;
     }
 
-    public void setLatLon(Object latLon) {
-        this.latLon = latLon;
+    public void setGeolocation(String geolocation) {
+        this.geolocation = geolocation;
+    }
+
+    public Point getLocation() {
+        return location;
+    }
+
+    public void setLocation(Point location) {
+        this.location = location;
     }
 
     public Double getLatitude() {
@@ -135,29 +158,45 @@ public class Cidade implements Serializable {
         this.codTom = codTom;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+
+    public Cidade(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location, Double latitude, Double longitude, Short codTom) {
+        this.id = id;
+        this.nome = nome;
+        this.uf = uf;
+        this.ibge = ibge;
+        this.geolocation = geolocation;
+        this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.codTom = codTom;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cidade)) {
-            return false;
-        }
-        Cidade other = (Cidade) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cidade cidade = (Cidade) o;
+        return Objects.equals(id, cidade.id) && Objects.equals(nome, cidade.nome) && Objects.equals(uf, cidade.uf) && Objects.equals(ibge, cidade.ibge) && Objects.equals(geolocation, cidade.geolocation) && Objects.equals(location, cidade.location) && Objects.equals(latitude, cidade.latitude) && Objects.equals(longitude, cidade.longitude) && Objects.equals(codTom, cidade.codTom);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, uf, ibge, geolocation, location, latitude, longitude, codTom);
+    }
+
 
     @Override
     public String toString() {
-        return "br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Cidade[ id=" + id + " ]";
+        return "Cidade{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", uf=" + uf +
+                ", ibge=" + ibge +
+                ", geolocation='" + geolocation + '\'' +
+                ", location=" + location +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", codTom=" + codTom +
+                '}';
     }
-    
 }

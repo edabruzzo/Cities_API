@@ -2,11 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.digitalinnovation.abruzzo.project_cities_api.MODEL;
+package br.com.digitalinnovation.abruzzo.project_cities_api.model;
 
 import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
-import org.hibernate.annotations.TypeDefs;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -43,8 +41,9 @@ public class Estado implements Serializable {
     @Column(name = "ibge")
     private Integer ibge;
     
-    @Column(name = "pais")
-    private Integer pais;
+    @ManyToOne
+    @JoinColumn(name="pais",referencedColumnName="id")
+    private Country pais;
 
     @Type(type = "org.hibernate.type.TextType")
     @Column(name = "ddd")
@@ -91,11 +90,12 @@ public class Estado implements Serializable {
         this.ibge = ibge;
     }
 
-    public Integer getPais() {
+
+    public Country getPais() {
         return pais;
     }
 
-    public void setPais(Integer pais) {
+    public void setPais(Country pais) {
         this.pais = pais;
     }
 

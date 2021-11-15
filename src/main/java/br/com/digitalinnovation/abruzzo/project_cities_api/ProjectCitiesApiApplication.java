@@ -2,6 +2,7 @@ package br.com.digitalinnovation.abruzzo.project_cities_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.swing.*;
 import java.io.BufferedReader;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
+@EntityScan("br.com.digitalinnovation.abruzzo.project_cities_api.model")
 public class ProjectCitiesApiApplication {
 
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package br.com.digitalinnovation.abruzzo.project_cities_api;
 
-import br.com.digitalinnovation.abruzzo.project_cities_api.MODEL.Country;
+import br.com.digitalinnovation.abruzzo.project_cities_api.model.Country;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;

@@ -179,3 +179,4 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 #### INTERCEPTORS SPRING X CDI 
 + https://rhuanrocha.net/2019/01/06/creating-logger-with-aop-using-cdi-interceptor/
 + https://www.tutorialspoint.com/spring_boot/spring_boot_interceptor.htm
++ https://stackoverflow.com/questions/31082981/spring-boot-adding-http-request-interceptors

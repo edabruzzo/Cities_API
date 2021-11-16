@@ -7,10 +7,16 @@
 ## Requirements
 
 * Linux
+    Meu sistema já é Ubuntu (release "Bionic")
 * Git
 * Java 8
 * Docker
-* IntelliJ Community
+  
+* IntelliJ Community ou NetBeans
+  * Desenvolvido inicialmente no NetBeans e depois migrei para o IntelliJ Idea
+  * Adorei o IntelliJ, pois já estava muito familiarizado com o PyCharm da JetBrains
+  * Sempre desenvolvi em NetBeans, mas depois deste BootCamp, começo a considerar migrar para o IntelliJ
+
 * Heroku CLI
 
 ## DataBase
@@ -93,17 +99,24 @@ select earth_distance(
 ) as distance;
 ```
 
+### Hibernate-spatial
+    Criei uma branch e profile específicos apenas para explorar o hibernate-spatial 
+    como alternativa para lidar com tipos Geoespaciais no PostgreSQL, no momento de 
+    mapear entidades e acessar os dados persistidos com tipo Point, Geometry, etc
+
+
 ## Spring Boot
 
 * [https://start.spring.io/](https://start.spring.io/)
 
 + Java 8
-+ Gradle Project
++ MAVEN Project
+  + Devido à minha familiaridade, optei por desenvolver e construir o projeto e gerenciar dependências com Maven
 + Jar
 + Spring Web
 + Spring Data JPA
 + PostgreSQL Driver
-
+    Versão: 42.2.24
 ### Spring Data
 
 * [jpa.query-methods](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)
@@ -139,6 +152,7 @@ select earth_distance(
 ```shell script
 wget https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
 ```
+
 
 ### OUTRAS REFERÊNCIAS ÚTEIS
 

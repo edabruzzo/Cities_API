@@ -20,13 +20,11 @@ public class DistanciaController {
 
     @GetMapping("/{nomeCidadeFrom}/{raioDistancia}")
     public ResponseEntity<Object> retornaListaCidades_RaioDistancia_ByPoint(@PathVariable(name = "nomeCidadeFrom") String nomeCidadeFrom,
-                                                                @PathVariable(name = "raioDistancia") String raioDistancia) {
+                                                                            @PathVariable(name = "raioDistancia") String raioDistancia) {
         double raioDistanciaParsed = Double.parseDouble(raioDistancia);
         List<Object> resposta = calculoDistanciaService.retornaListaCidades_RaioDistancia_ByPoint(nomeCidadeFrom, raioDistanciaParsed);
-        if (resposta.size()>0) return ResponseEntity.ok().body(resposta);
+        if (resposta.size() > 0) return ResponseEntity.ok().body(resposta);
         else return (ResponseEntity) ResponseEntity.notFound().build();
-
-
     }
 
 

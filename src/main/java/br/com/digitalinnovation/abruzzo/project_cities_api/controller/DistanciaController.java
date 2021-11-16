@@ -49,19 +49,19 @@ public class DistanciaController {
             @RequestParam(name = "from") final Long idCidade1,
             @RequestParam(name = "to") final Long idCidade2,
             @RequestParam("unidadeMedida") EarthRadius unit) {
-        EarthRadius unidadeMedida = unit == null ? EarthRadius.KILOMETERS : unit;
+        EarthRadius unidadeMedida = unit == null || ! unit.equals(EarthRadius.METERS.name()) || ! unit.equals(EarthRadius.KILOMETERS.name()) || ! unit.equals(EarthRadius.MILES.name()) ? EarthRadius.KILOMETERS : unit;
         return calculoDistanciaService.calculaDistanciaEntreCidadesUsandoMatematicaPura(idCidade1, idCidade2, unidadeMedida);
     }
 
     //@RequestMapping(value="/porMatematicaPura/{nomeCidade1}/{nomeCidade2}",method=RequestMethod.GET)
-    @GetMapping("/porMatematicaPura/{nomeCidade1}/{nomeCidade2}")
+        @GetMapping("/calcularPorMatematicaPura/{nomeCidade1}/{nomeCidade2}")
     public Double calculaDistanciaporMatematicaPuraPelosNomesCidadesUnidadeMedida(
             @PathVariable(name = "nomeCidade1") String nomeCidade1,
             @PathVariable(name = "nomeCidade2") String nomeCidade2,
             @RequestParam(name = "unidadeMedida") EarthRadius unit) {
 
         System.out.println("Request chegou no método calculaDistanciaporMatematicaPuraPelosNomesCidadesUnidadeMedida");
-        EarthRadius unidadeMedida = unit == null ? EarthRadius.KILOMETERS : unit;
+        EarthRadius unidadeMedida = unit == null || ! unit.equals(EarthRadius.METERS.name()) || ! unit.equals(EarthRadius.KILOMETERS.name()) || ! unit.equals(EarthRadius.MILES.name()) ? EarthRadius.KILOMETERS : unit;
         return calculoDistanciaService.calculaDistanciaEntreCidadesUsandoMatematicaPura(nomeCidade1, nomeCidade2, unidadeMedida);
     }
 

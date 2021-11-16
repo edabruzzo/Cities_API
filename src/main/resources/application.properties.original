@@ -1,11 +1,9 @@
 spring.datasource.url=jdbc:postgresql://localhost:5432/cities
-spring.datasource.username=postgres_user_city
-spring.datasource.password=super_password
+#spring.datasource.username=postgres_user_city
+#spring.datasource.password=super_password
 
-#Tests
-spring.profiles.include=testes
-spring.profiles.includde=hibernate_spatial
-#spring.profiles.active=hibernate_spatial
+#PROFILE ATIVO
+spring.profiles.active=desenvolvimento
 
 # Hibernate properties whitout Hibernate-spatial
 org.springframework.orm.jpa.vendor.Database = org.hibernate.dialect.PostgreSQLDialect

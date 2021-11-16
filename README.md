@@ -22,16 +22,11 @@
     O parâmetro unidade de medida é opcional e, caso não especificado, será calculada a distância em KM
     
 ##### Devolve o cálculo em KM
-+ localhost:8080/distances/porMatematicaPura/São Paulo/Curitiba
++ localhost:8080/distances/calcularPorMatematicaPura/São Paulo/Curitiba
 
-##### Devolve o cálculo em uma das medidas suportadas    
-+ http://localhost:8080/distances/porMatematicaPura/São Paulo/Curitiba?unidade_medida= m, ou km, mi
-
-  Unidades de medida suportadas:
-  Metros: "m"
-  Kilômetros: "km"
-  Milhas: "mi"
-
+##### Devolve o cálculo em uma das medidas suportadas  
++ http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador?unidade_medida={METERS ou  KILOMETERS ou MILES}
+  Unidades de medida suportadas: METERS ou  KILOMETERS ou MILES
 
 
 
@@ -260,3 +255,6 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 + https://rhuanrocha.net/2019/01/06/creating-logger-with-aop-using-cdi-interceptor/
 + https://www.tutorialspoint.com/spring_boot/spring_boot_interceptor.htm
 + https://stackoverflow.com/questions/31082981/spring-boot-adding-http-request-interceptors
+
+#### Conversor String para Enum para Receber parametro Minusculo
++ https://www.baeldung.com/spring-enum-request-param

@@ -37,4 +37,5 @@ build/
 
 ### ARQUIVOS_CONFIGURACAO_COM_SENHAS ####
 src/main/resources/META-INF/persistence.xml
-src/main/resources/application.properties
+src/main/resources/application.properties.original
+/src/main/resources/application.properties

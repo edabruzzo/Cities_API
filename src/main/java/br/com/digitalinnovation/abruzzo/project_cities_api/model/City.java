@@ -23,8 +23,9 @@ import java.util.Objects;
 @Entity
 @Table(name = "cidade", catalog = "cities", schema = "public")
 @TypeDefs(value = {@TypeDef(name = "point", typeClass = PointType.class)})
-@NamedNativeQueries({@NamedNativeQuery(name = "City.findCitiesByName",
-        query = "SELECT * FROM cidade WHERE nome in (:nomeCidade1, :nomeCidade2); ")})
+@NamedQueries({@NamedQuery(name = "City.findCitiesByName",
+              query = "SELECT c FROM City c WHERE c.nome in (:nomeCidade1, :nomeCidade2) ")
+})
 public class City implements Serializable {
 
     public City() {
@@ -127,7 +128,7 @@ public class City implements Serializable {
         this.longitude = longitude;
     }
 
-    public City(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location ) {
+    public City(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location) {
         this.id = id;
         this.nome = nome;
         this.uf = uf;

@@ -1,6 +1,7 @@
 spring.datasource.url=jdbc:postgresql://localhost:5432/cities
-#spring.datasource.username=postgres_user_city
-#spring.datasource.password=super_password
+spring.datasource.username=postgres_user_city
+spring.datasource.password=super_password
+
 
 #PROFILE ATIVO
 spring.profiles.active=desenvolvimento
@@ -9,7 +10,7 @@ spring.profiles.active=desenvolvimento
 org.springframework.orm.jpa.vendor.Database = org.hibernate.dialect.PostgreSQLDialect
 
 # Suporte a tipos geoespaciais com Hibernate
-# Estou com medo de que dê conflito com o Hibernate PostgreSQLDialect
+# Estou com medo de que dï¿½ conflito com o Hibernate PostgreSQLDialect
 # Vamos ver o que rola
 # https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#spatial
 #spring.jpa.properties.hibernate.dialect=org.hibernate.spatial.dialect.postgis.PostgisDialect

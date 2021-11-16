@@ -15,7 +15,7 @@ public class WebMVCInterceptorsConfig implements WebMvcConfigurer {
     LoggerInterceptor loggerInterceptor;
 
     @Autowired
-    StringToEnumEarthRadiusConverter EnumConverter;
+    StringToEnumEarthRadiusConverter enumConverter;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -24,7 +24,7 @@ public class WebMVCInterceptorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addFormatters(FormatterRegistry formatterRegistry){
-        formatterRegistry.addFormatter((Formatter<?>) EnumConverter);
+        formatterRegistry.addConverter(enumConverter);
     }
 
 

@@ -25,9 +25,9 @@
 + localhost:8080/distances/calcularPorMatematicaPura/São Paulo/Curitiba
 
 ##### Devolve o cálculo em uma das medidas suportadas  
-+ http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador?unidade_medida={METERS ou  KILOMETERS ou MILES}
-  Unidades de medida suportadas: METERS ou  KILOMETERS ou MILES
-
++ O que permite que o usuário passe o nome do Enum EarthRadius em letra minúscula é o StringToEnumEarthRadiusConverter
++ http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador?unidade_medida={METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
++ Unidades de medida suportadas: metros ou  kilômetros ou milhas
 
 
 #### EXPLORAÇÃO DE CONCEITOS DE ORIENTAÇÃO A OBJETO
@@ -258,3 +258,4 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 
 #### Conversor String para Enum para Receber parametro Minusculo
 + https://www.baeldung.com/spring-enum-request-param
++ https://www.baeldung.com/spring-type-conversions

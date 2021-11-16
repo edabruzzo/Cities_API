@@ -1,4 +1,8 @@
-# Cities API
+# Projeto Digital Innovation One Cities API
+## Projeto entregue como requisito parcial do BootCamp TQI - JAVA DEVELOPER
+
+### Emmanuel de Oliveira Abruzzo - Novembro/2021
+
 
 ## Requirements
 
@@ -69,6 +73,17 @@ Point
 ```roomsql
 select ((select lat_lon from cidade where id = 4929) <@> (select lat_lon from cidade where id=5254)) as distance;
 ```
+
+#### Consulta de cidades próximas de outra em determinado raio de distância
+
+```roomsql
+select distinct c2.id, c2.nome, (c1.lat_lon <@> c2.lat_lon) as di
+from public.cidade c1 
+	inner join public.cidade c2
+		on (c1.lat_lon <@> c2.lat_lon) < 100
+where c1.nome ilike 'São Paulo';
+```
+
 
 Cube
 ```roomsql

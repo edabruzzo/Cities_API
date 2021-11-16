@@ -64,7 +64,6 @@ public class City implements Serializable {
     @Column(name = "cod_tom")
     private Short codTom;
 
-
     public Long getId() {
         return id;
     }

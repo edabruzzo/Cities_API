@@ -1,10 +1,13 @@
 package br.com.digitalinnovation.abruzzo.project_cities_api.services;
 
 import br.com.digitalinnovation.abruzzo.project_cities_api.dao.CityRepository;
+import br.com.digitalinnovation.abruzzo.project_cities_api.model.City;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CalculoDistanciaService implements ICalculaDistanciaService{
@@ -20,5 +23,10 @@ public class CalculoDistanciaService implements ICalculaDistanciaService{
     @Override
     public Double calculaDistanciaEntreCidades_ByPostgresExtension_Cube(double x1, double y1, double x2, double y2) {
         return repository.calculaDistanciaEntreCidades_ByPostgresExtension_Cube(x1,y1,x2,y2);
+    }
+
+    @Override
+    public List<Object> retornaListaCidades_RaioDistancia_ByPoint(String nomeCidadeFrom, double raioDistancia) {
+        return repository.retornaListaCidades_RaioDistancia_ByPoint(nomeCidadeFrom, raioDistancia);
     }
 }

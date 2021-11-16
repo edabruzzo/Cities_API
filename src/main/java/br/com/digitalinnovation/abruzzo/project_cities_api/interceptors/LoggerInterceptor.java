@@ -1,7 +1,6 @@
 package br.com.digitalinnovation.abruzzo.project_cities_api.interceptors;
 
 
-import org.apache.logging.log4j.LogManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
@@ -21,8 +20,18 @@ public class LoggerInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("O método preHandle está sendo chamado no Interceptor !!!");
         System.out.println("Podemos pré-processar o request aqui no Interceptor !!!");
-        log.info(request.toString());
-        log.info(response.toString());
+        System.out.printf("IP de origem do request: %s", request.getRemoteAddr());
+        System.out.println(request.getRequestURI());
+        System.out.println(request.getAuthType());
+        System.out.println(request.getRemoteUser());
+        System.out.println(request.getRemoteHost());
+        System.out.println(request.getAuthType());
+        log.info(request.getRemoteAddr());
+        log.info(request.getRequestURI());
+        log.info(request.getAuthType());
+        log.info(request.getRemoteUser());
+        log.info(request.getRemoteHost());
+        log.info(request.getAuthType());
         return true;
     }
 

@@ -23,6 +23,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "cidade", catalog = "cities", schema = "public")
 @TypeDefs(value = {@TypeDef(name = "point", typeClass = PointType.class)})
+@NamedNativeQueries({@NamedNativeQuery(name = "City.findCitiesByName",
+        query = "SELECT * FROM cidade WHERE nome in (:nomeCidade1, :nomeCidade2); ")})
 public class City implements Serializable {
 
     public City() {
@@ -60,9 +62,6 @@ public class City implements Serializable {
 
     @Column(name = "longitude")
     private Double longitude;
-
-    @Column(name = "cod_tom")
-    private Short codTom;
 
     public Long getId() {
         return id;
@@ -128,25 +127,13 @@ public class City implements Serializable {
         this.longitude = longitude;
     }
 
-    public Short getCodTom() {
-        return codTom;
-    }
-
-    public void setCodTom(Short codTom) {
-        this.codTom = codTom;
-    }
-
-
-    public City(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location, Double latitude, Double longitude, Short codTom) {
+    public City(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location ) {
         this.id = id;
         this.nome = nome;
         this.uf = uf;
         this.ibge = ibge;
         this.geolocation = geolocation;
         this.location = location;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.codTom = codTom;
     }
 
     @Override
@@ -154,12 +141,12 @@ public class City implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City cidade = (City) o;
-        return Objects.equals(id, cidade.id) && Objects.equals(nome, cidade.nome) && Objects.equals(uf, cidade.uf) && Objects.equals(ibge, cidade.ibge) && Objects.equals(geolocation, cidade.geolocation) && Objects.equals(location, cidade.location) && Objects.equals(latitude, cidade.latitude) && Objects.equals(longitude, cidade.longitude) && Objects.equals(codTom, cidade.codTom);
+        return Objects.equals(id, cidade.id) && Objects.equals(nome, cidade.nome) && Objects.equals(uf, cidade.uf) && Objects.equals(ibge, cidade.ibge) && Objects.equals(geolocation, cidade.geolocation) && Objects.equals(location, cidade.location) && Objects.equals(latitude, cidade.latitude) && Objects.equals(longitude, cidade.longitude);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, uf, ibge, geolocation, location, latitude, longitude, codTom);
+        return Objects.hash(id, nome, uf, ibge, geolocation, location, latitude, longitude);
     }
 
 
@@ -174,7 +161,6 @@ public class City implements Serializable {
                 ", location=" + location +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
-                ", codTom=" + codTom +
                 '}';
     }
 }

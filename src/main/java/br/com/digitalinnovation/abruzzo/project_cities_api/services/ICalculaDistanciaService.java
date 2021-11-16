@@ -10,4 +10,8 @@ public interface ICalculaDistanciaService {
 
     Object retornaListaCidades_RaioDistancia_ByPoint(String nomeCidadeFrom, double raioDistancia);
 
+    Double calculaDistanciaEntreCidadesUsandoMatematicaPura(Long nomeCidade1, Long nomeCidade2, EarthRadius unit);
+    Double calculaDistanciaEntreCidadesUsandoMatematicaPura(String nomeCidade1, String nomeCidade2, EarthRadius unit);
+    Double calcular(final double lat1, final double lon1, final double lat2, final double lng2, final EarthRadius earthRadius);
+
 }

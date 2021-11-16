@@ -4,6 +4,57 @@
 ### Emmanuel de Oliveira Abruzzo - Novembro/2021
 
 
+
+## Endpoints
+
+#### Lista cidades próximas de uma determinada cidade (nomeCidadeFrom) num determinado raio (raioDistancia)
+* http://localhost:8080/distances/{nomeCidadeFrom}/{raioDistancia}
+
+#### Calcula distância entre cidades baseadas em pontos
+* http://localhost:8080/distances/by-point?from=idCidade1&to=idCidade2
+
+#### Calcula distância entre cidades baseadas em Cube e coordenadas de Latitude e Longitude
+* http://localhost:8080/distances/by-cube?x1=lat_cidade1&y1=long_cidade1&x2=lat_cidade2&y2=long_cidade2
+
+#### Calcula a distância entre duas cidades por Matemática pura em três opções de unidade de medida
+    
+    O cálculo é executado utilizando medidas de raio da Terra e fórmulas matemáticas
+    O parâmetro unidade de medida é opcional e, caso não especificado, será calculada a distância em KM
+    
+##### Devolve o cálculo em KM
++ localhost:8080/distances/porMatematicaPura/São Paulo/Curitiba
+
+##### Devolve o cálculo em uma das medidas suportadas    
++ http://localhost:8080/distances/porMatematicaPura/São Paulo/Curitiba?unidade_medida= m, ou km, mi
+
+  Unidades de medida suportadas:
+  Metros: "m"
+  Kilômetros: "km"
+  Milhas: "mi"
+
+
+
+
+#### EXPLORAÇÃO DE CONCEITOS DE ORIENTAÇÃO A OBJETO
+
+    O projeto explora também o conceito de sobrecarga de métodos e contrutores
+    Foram declarados métodos com o mesmo nome e assinaturas diferentes na camada de serviço 
+    Foi criada uma interface na camada serviço para estabelecer um contrato entre a classe de cálculo que a implementa 
+    E realizada de fato as operações para cálculo, invocando métodos na camada repositório
+    
+    @Override
+    public Double calculaDistanciaEntreCidadesUsandoMatematicaPura(Long idCidade1, Long idCidade2, EarthRadius unit) {
+
+    @Override
+    public Double calculaDistanciaEntreCidadesUsandoMatematicaPura(String nomeCidade1, String nomeCidade2, EarthRadius unit) {
+
+
+#### Exploração de declaração de @NativeNamedQueries nas Classes de Entidade, na camada modelo  
+
+    O projeto explora também o conceito de Queries nomeadas declaradas na 
+    Classe de entidade e também Queries declaradas na camada Repository (DAO)
+
+
 ## Requirements
 
 * Linux

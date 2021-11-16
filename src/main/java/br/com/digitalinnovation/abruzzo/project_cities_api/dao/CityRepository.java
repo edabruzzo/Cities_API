@@ -25,4 +25,7 @@ public interface CityRepository extends JpaRepository<City, Long> {
             "\t\ton (c1.lat_lon <@> c2.lat_lon) < :raioDistancia\n" +
             "where c1.nome ilike :nomeCidadeFrom ;", nativeQuery = true)
     List<Object> retornaListaCidades_RaioDistancia_ByPoint(String nomeCidadeFrom, double raioDistancia);
+
+    // Método DAO usando NativeNamedQuery declarada na Classe de Entidade
+    List<City> findCitiesByName(String nomeCidade1, String nomeCidade2);
 }

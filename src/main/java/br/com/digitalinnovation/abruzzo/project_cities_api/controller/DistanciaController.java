@@ -1,10 +1,9 @@
 package br.com.digitalinnovation.abruzzo.project_cities_api.controller;
 
 
-import br.com.digitalinnovation.abruzzo.project_cities_api.model.City;
 import br.com.digitalinnovation.abruzzo.project_cities_api.services.CalculoDistanciaService;
+import br.com.digitalinnovation.abruzzo.project_cities_api.services.EarthRadius;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +40,29 @@ public class DistanciaController {
                                                                         @RequestParam(name = "x2") double x2,
                                                                         @RequestParam(name = "y2") double y2) {
         return calculoDistanciaService.calculaDistanciaEntreCidades_ByPostgresExtension_Cube(x1, y1, x2, y2);
+    }
+
+
+    //@RequestMapping(value ="/by-math", method =RequestMethod.GET)
+    @GetMapping("/calcularPorMatematicaPura")
+    public Double calculaDistanciaporMatematicaPuraPelosIdsCidadesUnidadeMedida(
+            @RequestParam(name = "from") final Long idCidade1,
+            @RequestParam(name = "to") final Long idCidade2,
+            @RequestParam("unidadeMedida") EarthRadius unit) {
+        EarthRadius unidadeMedida = unit == null ? EarthRadius.KILOMETERS : unit;
+        return calculoDistanciaService.calculaDistanciaEntreCidadesUsandoMatematicaPura(idCidade1, idCidade2, unidadeMedida);
+    }
+
+    //@RequestMapping(value="/porMatematicaPura/{nomeCidade1}/{nomeCidade2}",method=RequestMethod.GET)
+    @GetMapping("/porMatematicaPura/{nomeCidade1}/{nomeCidade2}")
+    public Double calculaDistanciaporMatematicaPuraPelosNomesCidadesUnidadeMedida(
+            @PathVariable(name = "nomeCidade1") String nomeCidade1,
+            @PathVariable(name = "nomeCidade2") String nomeCidade2,
+            @RequestParam(name = "unidadeMedida") EarthRadius unit) {
+
+        System.out.println("Request chegou no método calculaDistanciaporMatematicaPuraPelosNomesCidadesUnidadeMedida");
+        EarthRadius unidadeMedida = unit == null ? EarthRadius.KILOMETERS : unit;
+        return calculoDistanciaService.calculaDistanciaEntreCidadesUsandoMatematicaPura(nomeCidade1, nomeCidade2, unidadeMedida);
     }
 
 

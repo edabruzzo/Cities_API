@@ -22,7 +22,7 @@ public interface CityRepository extends JpaRepository<City, Long> {
     @Query(value = "select distinct c2.id, c2.nome, (c1.lat_lon <@> c2.lat_lon) as distancia\n" +
             "from public.cidade c1 \n" +
             "\tinner join public.cidade c2\n" +
-            "\t\ton distancia < :raioDistancia\n" +
+            "\t\ton (c1.lat_lon <@> c2.lat_lon) < :raioDistancia\n" +
             "where c1.nome ilike :nomeCidadeFrom ;", nativeQuery = true)
     List<Object> retornaListaCidades_RaioDistancia_ByPoint(String nomeCidadeFrom, double raioDistancia);
 

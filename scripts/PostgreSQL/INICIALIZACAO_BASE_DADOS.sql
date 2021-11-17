@@ -1,4 +1,4 @@
---
+﻿--
 -- Estrutura da tabela "cidade"
 --
 
@@ -6033,17 +6033,17 @@ CREATE EXTENSION IF NOT EXISTS earthdistance;
 select distinct c2.id, c2.nome, (c1.lat_lon <@> c2.lat_lon) as di
 from public.cidade c1
 	inner join public.cidade c2
-		on (c1.lat_lon <@> c2.lat_lon) < 100
-where c1.nome ilike 'Salvador';
+		on (c1.lat_lon <@> c2.lat_lon) < 5.2
+where c1.nome ilike 'Curitiba'
+and c2.nome <> 'Curitiba';
 
 
 
 
-WITH DIST as (SELECT ((select lat_lon from cidade where nome ilike 'São Paulo')
+WITH DIST as (SELECT ((select lat_lon from cidade where nome ilike 'Curitiba')
 <@> (select lat_lon from cidade where id=c.id)) x (distancia double precision))
 select distinct c.nome, DIST from public.cidade c
-
-WHERE DIST.distancia < 100;
+WHERE DIST.distancia < 150;
 
 
 
@@ -6056,6 +6056,34 @@ select earth_distance(
     ll_to_earth(-21.95840072631836,-47.98820114135742),
     ll_to_earth(-22.01740074157715,-47.88600158691406)
 ) as distance;
+
+
+
+select * from cidade where nome in ('Curitiba', 'Salvador');
+
+Salvador
+616;"Salvador";5;2927408;"(-12.9717998504639,-38.5010986328125)";-1.29717998504638e+17;-385010986328125;3849
+2878;"Curitiba";18;4106902;"(-25.4195003509521,-49.2645988464355)";-2.5419500350952e+17;-4.92645988464354e+17;7535
+
+http://localhost:8080/distances/Curitiba/150
+
+http://localhost:8080/distances/by-point?from=616&to=278
+
+SELECT (select lat_lon from cidade where id = 616)
+<@> (select lat_lon from cidade where id= 278 )
+1882.24783482189
+
+http://localhost:8080/distances/by-points/Curitiba/Salvador
+
+http://localhost:8080/distances/by-cube?x1=-25.4195003509521&y1=-49.2645988464355&x2=-2.5419500350952e+17&y2=-4.92645988464354e+17
+12750470.8979053
+select earth_distance(
+    ll_to_earth(-25.4195003509521,-49.2645988464355),
+    ll_to_earth(-2.5419500350952e+17,-4.92645988464354e+17)
+) as distance;
+
+
+
 
 */
 

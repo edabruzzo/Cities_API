@@ -37,9 +37,14 @@
 ### Diferentes approachs (RequestParam / PathVariable) 
 * No Rest Controller temos sobrecarga de métodos no Backend (mesmo nome e diferentes assinaturas)
 
+##### Exemplo - Distância Curitiba -> Salvador
+616;"Salvador";5;2927408;"(-12.9717998504639,-38.5010986328125)";-1.29717998504638e+17;-385010986328125;3849
+2878;"Curitiba";18;4106902;"(-25.4195003509521,-49.2645988464355)";-2.5419500350952e+17;-4.92645988464354e+17;7535
+
+
 #### Calcula distância entre cidades baseadas em pontos por idCidade
-+ https://fierce-atoll-34490.herokuapp.com/distances/by-points?from=10&to=20
-+ http://localhost:8080/distances/by-point?from=idCidade1&to=idCidade2
++ https://fierce-atoll-34490.herokuapp.com/distances/by-points?from=616&to=278
++ http://localhost:8080/distances/by-points?from=616&to=278
 
 #### Calcula distância entre cidades baseadas em pontos por Nome
 + https://fierce-atoll-34490.herokuapp.com/distances/by-points/Curitiba/Salvador
@@ -49,9 +54,9 @@
 #### Calcula distância entre cidades baseadas em Cube e coordenadas de Latitude e Longitude
     X1 = Latitude da cidade 1 / Y1 = Longitude cidade 1
     X2 = Latitude da cidade 2 / y2 = Longitude cidade 2
-+ https://fierce-atoll-34490.herokuapp.com/distances/by-cube?x1=lat_cidade1&y1=long_cidade1&x2=lat_cidade2&y2=long_cidade2
-+ http://localhost:8080/distances/by-cube?x1=lat_cidade1&y1=long_cidade1&x2=lat_cidade2&y2=long_cidade2
++ https://fierce-atoll-34490.herokuapp.com/distances/by-cube?x1=-25.4195003509521&y1=-49.2645988464355&x2=-2.5419500350952e+17&y2=-4.92645988464354e+17
 
++ http://localhost:8080/distances/by-cube?x1=-25.4195003509521&y1=-49.2645988464355&x2=-2.5419500350952e+17&y2=-4.92645988464354e+17
 #### Calcula a distância entre duas cidades por Matemática pura em três opções de unidade de medida
     
     O cálculo é executado utilizando medidas de raio da Terra e fórmulas matemáticas
@@ -70,8 +75,10 @@
 #### Lista Cidades
 + https://fierce-atoll-34490.herokuapp.com/cities
 + http://localhost:8080/cities
-+ https://fierce-atoll-34490.herokuapp.com/cities/{id}
-+ http://localhost:8080/cities/{id}
+
+Salvador
++ https://fierce-atoll-34490.herokuapp.com/cities/616
++ http://localhost:8080/cities/616
 
 #### Lista Estados
 + http://localhost:8080/states
@@ -291,6 +298,7 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 + https://www.baeldung.com/spring-boot-testing
 + https://www.bezkoder.com/spring-boot-unit-test-jpa-repo-datajpatest/
 + https://www.tutorialspoint.com/spring_boot/spring_boot_rest_controller_unit_test.htm
++ https://www.baeldung.com/spring-mock-rest-template
 
 
 #### GEOMAPPING - POSTGRESQL X HIBERNATE

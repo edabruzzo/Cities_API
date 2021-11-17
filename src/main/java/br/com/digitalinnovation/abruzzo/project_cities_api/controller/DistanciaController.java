@@ -48,7 +48,7 @@ public class DistanciaController {
     public Double calculaDistanciaporMatematicaPuraPelosIdsCidadesUnidadeMedida(
             @RequestParam(name = "from") final Long idCidade1,
             @RequestParam(name = "to") final Long idCidade2,
-            @RequestParam("unidadeMedida") EarthRadius unit) {
+            @RequestParam(name ="unidadeMedida",required = false) EarthRadius unit) {
         return calculoDistanciaService.calculaDistanciaEntreCidadesUsandoMatematicaPura(idCidade1, idCidade2, unit);
     }
 
@@ -57,7 +57,7 @@ public class DistanciaController {
     public Double calculaDistanciaporMatematicaPuraPelosNomesCidadesUnidadeMedida(
             @PathVariable(name = "nomeCidade1") String nomeCidade1,
             @PathVariable(name = "nomeCidade2") String nomeCidade2,
-            @PathVariable(name = "unidadeMedida") EarthRadius unit) {
+            @PathVariable(name = "unidadeMedida",required = false) EarthRadius unit) {
         System.out.println("Request chegou no método calculaDistanciaporMatematicaPuraPelosNomesCidadesUnidadeMedida");
         return calculoDistanciaService.calculaDistanciaEntreCidadesUsandoMatematicaPura(nomeCidade1, nomeCidade2, unit);
     }

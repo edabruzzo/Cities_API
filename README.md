@@ -283,3 +283,6 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 
 #### Deploy da aplicação Springboot Maven no Heroku
 + https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku
+
+#### Heroku DB Migrations on Release Phase
++ https://devcenter.heroku.com/articles/running-database-migrations-for-java-apps

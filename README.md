@@ -379,6 +379,33 @@ $ heroku logs --tail
 + https://devcenter.heroku.com/articles/release-phase
 
 #### Conexão Banco de Dados PostgreSQL Heroku Add-on
-    heroku pg:psql postgresql-clean-54438 --app fierce-atoll-34490
+Heroku configura no ambiente uma variável com URL para conexão ao banco de dados criado na AWS:
 
-    Outro meio de se conectar diretamente com psql com as credenciais de banco e host fornecidas pelo próprio Heroku
+heroku config
+
+=== fierce-atoll-34490 Config Vars
+DATABASE_URL: postgres://qmghvbmblxrlba:f623f1e760b51ab39cfc64a8549e62a1f814346dc203d252e0b5699343b298a8@ec2-3-227-149-67.compute-1.amazonaws.com:5432/d7q52pdubr9p5l
+    
+Você pode se conectar ao banco via psql utilizando estas credenciais 
+e a senha que pode ser vista no seu dashboard no Heroku Dev Center
+
+```shell script 
+        heroku pg:psql postgresql-clean-54438 --app fierce-atoll-34490
+```
+Outro meio de se conectar diretamente com psql com as credenciais de banco e host fornecidas pelo próprio Heroku
+
+$ heroku pg:info
+
+=== DATABASE_URL
+Plan:                  Hobby-dev
+Status:                Available
+Connections:           0/20
+PG Version:            13.4
+Created:               2021-11-17 01:49 UTC
+Data Size:             9.2 MB/1.00 GB (In compliance)
+Tables:                3
+Rows:                  5849/10000 (In compliance)
+Fork/Follow:           Unsupported
+Rollback:              Unsupported
+Continuous Protection: Off
+Add-on:                postgresql-clean-54438

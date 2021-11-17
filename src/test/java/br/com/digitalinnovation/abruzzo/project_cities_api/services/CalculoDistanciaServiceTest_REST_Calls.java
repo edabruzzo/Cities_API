@@ -30,7 +30,7 @@ public class CalculoDistanciaServiceTest_REST_Calls {
     @InjectMocks
     private CalculoDistanciaService service = new CalculoDistanciaService();
 
-    //@Test
+    @Test
     public void quandoFazUmaChamadaParaApiComMockitoDeveriaCalcularADistanciaPorCube() {
         Double distancia = 12750470.8979053;
         Mockito.when(restTemplate.getForEntity("http://localhost:8080/distances/by-cube?x1=-25.4195003509521&y1=-49.2645988464355&x2=-2.5419500350952e+17&y2=-4.92645988464354e+17",
@@ -40,7 +40,7 @@ public class CalculoDistanciaServiceTest_REST_Calls {
     }
 
 
-    //@Test
+    @Test
     public void quandoFazUmaChamadaParaApiComMockitoDeveriaDevolverListaCidadesPorRaio() {
 
         List<Object> listaCidadesProximas = cityRepository.retornaListaCidades_RaioDistancia_ByPoint("Curitiba",5.2);
@@ -50,7 +50,7 @@ public class CalculoDistanciaServiceTest_REST_Calls {
     }
 
 
-    //@Test
+    @Test
     public void quandoFazUmaChamadaParaApiComMockitoDeveriaCalcularADistanciaPorPoyntsId() {
         Double distancia = 1882.24783482189;
         Mockito.when(restTemplate.getForEntity("http://localhost:8080/distances/by-points?from=616&to=278",
@@ -59,7 +59,50 @@ public class CalculoDistanciaServiceTest_REST_Calls {
         assertThat(distancia).isEqualTo(1882.24783482189);
     }
 
+    @Test
+    public void quandoFazUmaChamadaParaApiComMockitoDeveriaCalcularADistanciaPorPoyntsNomeCidade() {
+        Double distancia = 965.5710336047592;
+        Mockito.when(restTemplate.getForEntity("http://localhost:8080/distances/by-points/Curitiba/Salvador",
+                        Double.class))
+                .thenReturn(new ResponseEntity(distancia, HttpStatus.OK));
+        assertThat(distancia).isEqualTo(965.5710336047592);
+    }
 
+    @Test
+    public void quandoFazUmaChamadaParaApiComMockitoDeveriaCalcularADistanciaPorMatematicaPura_KM() {
+        Double distancia = 1786.9735938223405;
+        Mockito.when(restTemplate.getForEntity("http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/",
+                        Double.class))
+                .thenReturn(new ResponseEntity(distancia, HttpStatus.OK));
+        assertThat(distancia).isEqualTo(1786.9735938223405);
+    }
+
+    @Test
+    public void quandoFazUmaChamadaParaApiComMockitoDeveriaCalcularADistanciaPorMatematicaPura_KM_ParametroOpcionalUnidadeMedida() {
+        Double distancia = 1786.9735938223405;
+        Mockito.when(restTemplate.getForEntity("http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/kilometers",
+                        Double.class))
+                .thenReturn(new ResponseEntity(distancia, HttpStatus.OK));
+        assertThat(distancia).isEqualTo(1786.9735938223405);
+    }
+
+    @Test
+    public void quandoFazUmaChamadaParaApiComMockitoDeveriaCalcularADistanciaPorMatematicaPura_METERS_ParametroOpcionalUnidadeMedida() {
+        Double distancia = 1786973.6025776642;
+        Mockito.when(restTemplate.getForEntity("http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/meters",
+                        Double.class))
+                .thenReturn(new ResponseEntity(distancia, HttpStatus.OK));
+        assertThat(distancia).isEqualTo(1786973.6025776642);
+    }
+
+    @Test
+    public void quandoFazUmaChamadaParaApiComMockitoDeveriaCalcularADistanciaPorMatematicaPura_MILES_ParametroOpcionalUnidadeMedida() {
+        Double distancia = 1109.123783310295;
+        Mockito.when(restTemplate.getForEntity("http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/miles",
+                        Double.class))
+                .thenReturn(new ResponseEntity(distancia, HttpStatus.OK));
+        assertThat(distancia).isEqualTo(1109.123783310295);
+    }
 
 
 }

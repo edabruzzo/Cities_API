@@ -62,5 +62,11 @@ public class DistanciaController {
         return calculoDistanciaService.calculaDistanciaEntreCidadesUsandoMatematicaPura(nomeCidade1, nomeCidade2, unit);
     }
 
+    @GetMapping("/by-points/{from}/{to}")
+    public Double calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance_ByName(@PathVariable(name = "from") String nomeCidade1,
+                                                                                        @PathVariable(name = "to") String nomeCidade2) {
+        return calculoDistanciaService.calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(nomeCidade1, nomeCidade2);
+    }
+
 
 }

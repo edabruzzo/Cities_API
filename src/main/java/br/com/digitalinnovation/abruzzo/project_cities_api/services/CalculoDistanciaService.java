@@ -28,6 +28,13 @@ public class CalculoDistanciaService implements ICalculaDistanciaService {
     }
 
     @Override
+    public Double calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(String nomeCidade1, String nomeCidade2) {
+        this.logger.info("calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance({}, {}, {})", nomeCidade1, nomeCidade2);
+        return repository.calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(nomeCidade1, nomeCidade2);
+    }
+
+
+    @Override
     public Double calculaDistanciaEntreCidades_ByPostgresExtension_Cube(double x1, double y1, double x2, double y2) {
         this.logger.info("calculaDistanciaEntreCidades_ByPostgresExtension_Cube({}, {}, {}, {})", x1, y1, x2, y2);
         return repository.calculaDistanciaEntreCidades_ByPostgresExtension_Cube(x1, y1, x2, y2);

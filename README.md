@@ -16,6 +16,7 @@
 + https://digitalinnovation.one/
 + #### Video deploy
 + https://youtu.be/6Vd3WYr5r3E
++ https://youtu.be/MM0CQyWEQ7s
 
 
 #Desenvolvimento #Developer
@@ -28,13 +29,22 @@
 
 ## Endpoints
 
-#### Lista cidades próximas de uma determinada cidade (nomeCidadeFrom) num determinado raio (raioDistancia)
-+ https://fierce-atoll-34490.herokuapp.com/distances/Curitiba/Salvador
-+ http://localhost:8080/distances/{nomeCidadeFrom}/{raioDistancia}
+#### Lista cidades próximas de uma determinada cidade (nomeCidadeFrom) num determinado raio em kilometros (raioDistancia)
++ https://fierce-atoll-34490.herokuapp.com/distances/Curitiba/100
++ http://localhost:8080/distances/Curitiba/150
 
-#### Calcula distância entre cidades baseadas em pontos
-+ https://fierce-atoll-34490.herokuapp.com/distances/by-point?from=10&to=20
+
+### Diferentes approachs (RequestParam / PathVariable) 
+* No Rest Controller temos sobrecarga de métodos no Backend (mesmo nome e diferentes assinaturas)
+
+#### Calcula distância entre cidades baseadas em pontos por idCidade
++ https://fierce-atoll-34490.herokuapp.com/distances/by-points?from=10&to=20
 + http://localhost:8080/distances/by-point?from=idCidade1&to=idCidade2
+
+#### Calcula distância entre cidades baseadas em pontos por Nome
++ https://fierce-atoll-34490.herokuapp.com/distances/by-points/Curitiba/Salvador
++ http://localhost:8080/distances/by-points/Curitiba/Salvador
+
 
 #### Calcula distância entre cidades baseadas em Cube e coordenadas de Latitude e Longitude
     X1 = Latitude da cidade 1 / Y1 = Longitude cidade 1
@@ -57,6 +67,23 @@
 + https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/Curitiba/Salvador/{METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
 + http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/{METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
 
+#### Lista Cidades
++ https://fierce-atoll-34490.herokuapp.com/cities
++ http://localhost:8080/cities
++ https://fierce-atoll-34490.herokuapp.com/cities/{id}
++ http://localhost:8080/cities/{id}
+
+#### Lista Estados
++ http://localhost:8080/states
++ https://fierce-atoll-34490.herokuapp.com/states
++ http://localhost:8080/states/{id}
++ https://fierce-atoll-34490.herokuapp.com/states{id}
+
+#### Lista Países
++ http://localhost:8080/countries
++ https://fierce-atoll-34490.herokuapp.com/states
++ http://localhost:8080/countries/{id}
++ https://fierce-atoll-34490.herokuapp.com/states/{id}
 
 
 #### EXPLORAÇÃO DE CONCEITOS DE ORIENTAÇÃO A OBJETO

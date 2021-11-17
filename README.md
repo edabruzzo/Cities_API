@@ -2,6 +2,27 @@
 ## Projeto entregue como requisito parcial do BootCamp TQI - JAVA DEVELOPER
 
 ### Emmanuel de Oliveira Abruzzo - Novembro/2021
+    Deploy do projeto DIGITAL INNOVATION ONE - BOOTCAMP - TQI-JAVA-DEVELOPER - NOV/2021
+
+#### API SPRING REST PARA CÁLCULO DE DISTÂNCIA ENTRE CIDADES COM BASE NO RAIO DA TERRA - SUPORTE A CÁLCULO COM DIFERENTES MÉTODOS E MEDIDAS
++ https://fierce-atoll-34490.herokuapp.com/    deployed to Heroku
+#### GITHUB:
++ https://github.com/edabruzzo/
+#### LINKEDIN:
++ https://www.linkedin.com/in/emmanuel-abruzzo-8ba80a36/
+#### DISCORD - DIO
++ Discord: https://discord.gg/AWxMaerJ
+#### DIGITAL INNOVATION ONE
++ https://digitalinnovation.one/
++ #### Video deploy
++ https://youtu.be/6Vd3WYr5r3E
+
+
+#Desenvolvimento #Developer
+#Spring
+#JAVA
+#DigitalInnovationOne #DigitalInnovation
+
 
 
 

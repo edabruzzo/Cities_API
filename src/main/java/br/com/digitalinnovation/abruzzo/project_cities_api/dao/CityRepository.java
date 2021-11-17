@@ -16,8 +16,8 @@ public interface CityRepository extends JpaRepository<City, Long> {
     @Query(value = "select ((select lat_lon from cidade where id = :idCidade1) <@> (select lat_lon from cidade where id = :idCidade2)) as distance;",nativeQuery = true)
     Double calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(Long idCidade1, Long idCidade2);
 
-    @Query(value = "select ((select lat_lon from cidade where nome = :nomeCidade1) <@> (select lat_lon from cidade where id = :nomeCidade2)) as distance;",nativeQuery = true)
-    Double calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(String idCidade1, String idCidade2);
+    @Query(value = "select ((select lat_lon from cidade where nome = :nomeCidade1) <@> (select lat_lon from cidade where nome = :nomeCidade2)) as distance;",nativeQuery = true)
+    Double calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(String nomeCidade1, String nomeCidade2);
 
 
     @Query(value = "select earth_distance(ll_to_earth(:x1,:y1), ll_to_earth(:x2,:y2)) as distance;", nativeQuery = true)

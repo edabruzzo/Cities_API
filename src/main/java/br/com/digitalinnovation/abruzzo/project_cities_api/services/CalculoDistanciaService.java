@@ -42,19 +42,21 @@ public class CalculoDistanciaService implements ICalculaDistanciaService {
     @Override
     public Double calculaDistanciaEntreCidadesUsandoMatematicaPura(Long idCidade1, Long idCidade2, EarthRadius unit) {
         this.logger.info("calculaDistanciaEntreCidadesUsandoMatematicaPura({}, {}, {})", idCidade1, idCidade2, unit);
+        EarthRadius unidadeMedida = unit == null ? EarthRadius.KILOMETERS : unit;
         final List<City> cities = this.repository.findAllById((Arrays.asList(idCidade1, idCidade2)));
         final Double[] location1 = StringLocationUtils.transform(cities.get(0).getGeolocation());
         final Double[] location2 = StringLocationUtils.transform(cities.get(1).getGeolocation());
-        return calcular(location1[0], location1[1], location2[0], location2[1], unit);
+        return calcular(location1[0], location1[1], location2[0], location2[1], unidadeMedida);
     }
 
     @Override
     public Double calculaDistanciaEntreCidadesUsandoMatematicaPura(String nomeCidade1, String nomeCidade2, EarthRadius unit) {
         this.logger.info("calculaDistanciaEntreCidadesUsandoMatematicaPura({}, {}, {})", nomeCidade1, nomeCidade2, unit);
+        EarthRadius unidadeMedida = unit == null ? EarthRadius.KILOMETERS : unit;
         final List<City> cities = this.repository.findCitiesByName(nomeCidade1, nomeCidade2);
         final Double[] location1 = StringLocationUtils.transform(cities.get(0).getGeolocation());
         final Double[] location2 = StringLocationUtils.transform(cities.get(1).getGeolocation());
-        return calcular(location1[0], location1[1], location2[0], location2[1], unit);
+        return calcular(location1[0], location1[1], location2[0], location2[1], unidadeMedida);
     }
 
     public Double calcular(final double lat1, final double lon1, final double lat2, final double lng2, final EarthRadius earthRadius) {

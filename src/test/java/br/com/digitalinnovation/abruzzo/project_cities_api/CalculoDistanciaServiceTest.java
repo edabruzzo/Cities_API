@@ -1,14 +1,5 @@
 package br.com.digitalinnovation.abruzzo.project_cities_api;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.data.Offset.offset;
-import static org.mockito.ArgumentMatchers.anyList;
-import static org.mockito.BDDMockito.given;
-
-
-import java.util.Arrays;
-import java.util.List;
-
 import br.com.digitalinnovation.abruzzo.project_cities_api.dao.CityRepository;
 import br.com.digitalinnovation.abruzzo.project_cities_api.model.City;
 import br.com.digitalinnovation.abruzzo.project_cities_api.services.CalculoDistanciaService;
@@ -19,6 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.geo.Point;
+
+import java.util.Arrays;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.data.Offset.offset;
+import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class CalculoDistanciaServiceTest {
@@ -62,39 +62,29 @@ class CalculoDistanciaServiceTest {
 
     @Test
     public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesMetros() {
-        List<City> cidades = cityRepository.findCitiesByName("Ibaté", "São Carlos");
-        Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(
-                cidades.get(0).getNome(),
-                cidades.get(1).getNome(), EarthRadius.METERS);
+        when(cityRepository.findCitiesByName(anyString(), anyString())).thenReturn(Arrays.asList(this.ibate, this.saoCarlos));
+        Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(this.ibate.getNome(), this.saoCarlos.getNome(), EarthRadius.METERS);
         assertThat(distance).isEqualTo(12426.810463475855);
     }
 
 
     @Test
     public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesPorKM() {
-        List<City> cidades = cityRepository.findCitiesByName("Ibaté", "São Carlos");
-        Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(cidades.get(0).getNome(),
-                cidades.get(1).getNome(), EarthRadius.KILOMETERS);
-        assertThat(distance).isEqualTo(12426.810463475855);
+        when(cityRepository.findCitiesByName(anyString(), anyString())).thenReturn(Arrays.asList(this.ibate, this.saoCarlos));
+        Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(this.ibate.getNome(), this.saoCarlos.getNome(), EarthRadius.KILOMETERS);
+        assertThat(distance).isEqualTo(12.426810402590373);
     }
 
 
     @Test
     public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesPorMilhas() {
-        List<City> cidades = cityRepository.findCitiesByName("Ibaté", "São Carlos");
+        when(cityRepository.findCitiesByName(anyString(), anyString())).thenReturn(Arrays.asList(this.ibate, this.saoCarlos));
         Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(
-                cidades.get(0).getNome(),
-                cidades.get(1).getNome(),
+                this.ibate.getNome(),
+                this.saoCarlos.getNome(),
                 EarthRadius.MILES);
         assertThat(distance).isCloseTo(7.71, offset(0.01d));
     }
 
-
-    @Test
-    public void deveriaCalcularDistanciaPorPontosKM() {
-        given(cityRepository.findAllById(anyList())).willReturn(Arrays.asList(ibate, saoCarlos));
-        Double distance = service.calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(4929L, 5254L);
-        assertThat(distance).isEqualTo(12426.810463475855);
-    }
 
 }

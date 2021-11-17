@@ -29,13 +29,18 @@
 ## Endpoints
 
 #### Lista cidades próximas de uma determinada cidade (nomeCidadeFrom) num determinado raio (raioDistancia)
-* http://localhost:8080/distances/{nomeCidadeFrom}/{raioDistancia}
++ https://fierce-atoll-34490.herokuapp.com/distances/Curitiba/Salvador
++ http://localhost:8080/distances/{nomeCidadeFrom}/{raioDistancia}
 
 #### Calcula distância entre cidades baseadas em pontos
-* http://localhost:8080/distances/by-point?from=idCidade1&to=idCidade2
++ https://fierce-atoll-34490.herokuapp.com/distances/by-point?from=10&to=20
++ http://localhost:8080/distances/by-point?from=idCidade1&to=idCidade2
 
 #### Calcula distância entre cidades baseadas em Cube e coordenadas de Latitude e Longitude
-* http://localhost:8080/distances/by-cube?x1=lat_cidade1&y1=long_cidade1&x2=lat_cidade2&y2=long_cidade2
+    X1 = Latitude da cidade 1 / Y1 = Longitude cidade 1
+    X2 = Latitude da cidade 2 / y2 = Longitude cidade 2
++ https://fierce-atoll-34490.herokuapp.com/distances/by-cube?x1=lat_cidade1&y1=long_cidade1&x2=lat_cidade2&y2=long_cidade2
++ http://localhost:8080/distances/by-cube?x1=lat_cidade1&y1=long_cidade1&x2=lat_cidade2&y2=long_cidade2
 
 #### Calcula a distância entre duas cidades por Matemática pura em três opções de unidade de medida
     
@@ -43,12 +48,15 @@
     O parâmetro unidade de medida é opcional e, caso não especificado, será calculada a distância em KM
     
 ##### Devolve o cálculo em KM
-+ localhost:8080/distances/calcularPorMatematicaPura/São Paulo/Curitiba
++ https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/São Paulo/Curitiba/kilometers
++ localhost:8080/distances/calcularPorMatematicaPura/São Paulo/Curitiba/kilometers
 
 ##### Devolve o cálculo em uma das medidas suportadas  
-+ O que permite que o usuário passe o nome do Enum EarthRadius em letra minúscula é o StringToEnumEarthRadiusConverter
-+ http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador?unidade_medida={METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
-+ Unidades de medida suportadas: metros ou  kilômetros ou milhas
+    O que permite que o usuário passe o nome do Enum EarthRadius em letra minúscula é o StringToEnumEarthRadiusConverter
+    Unidades de medida suportadas: metros ou  kilômetros ou milhas
++ https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/Curitiba/Salvador/{METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
++ http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/{METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
+
 
 
 #### EXPLORAÇÃO DE CONCEITOS DE ORIENTAÇÃO A OBJETO
@@ -369,3 +377,8 @@ $ heroku logs --tail
 #### Heroku DB Migrations on Release Phase
 + https://devcenter.heroku.com/articles/running-database-migrations-for-java-apps
 + https://devcenter.heroku.com/articles/release-phase
+
+#### Conexão Banco de Dados PostgreSQL Heroku Add-on
+    heroku pg:psql postgresql-clean-54438 --app fierce-atoll-34490
+
+    Outro meio de se conectar diretamente com psql com as credenciais de banco e host fornecidas pelo próprio Heroku

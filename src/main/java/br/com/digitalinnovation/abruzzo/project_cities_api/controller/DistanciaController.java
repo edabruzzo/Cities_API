@@ -53,11 +53,11 @@ public class DistanciaController {
     }
 
     //@RequestMapping(value="/porMatematicaPura/{nomeCidade1}/{nomeCidade2}",method=RequestMethod.GET)
-    @GetMapping("/calcularPorMatematicaPura/{nomeCidade1}/{nomeCidade2}")
+    @GetMapping("/calcularPorMatematicaPura/{nomeCidade1}/{nomeCidade2}/{unidadeMedida}")
     public Double calculaDistanciaporMatematicaPuraPelosNomesCidadesUnidadeMedida(
             @PathVariable(name = "nomeCidade1") String nomeCidade1,
             @PathVariable(name = "nomeCidade2") String nomeCidade2,
-            @RequestParam(name = "unidadeMedida") EarthRadius unit) {
+            @PathVariable(name = "unidadeMedida") EarthRadius unit) {
         System.out.println("Request chegou no método calculaDistanciaporMatematicaPuraPelosNomesCidadesUnidadeMedida");
         return calculoDistanciaService.calculaDistanciaEntreCidadesUsandoMatematicaPura(nomeCidade1, nomeCidade2, unit);
     }

@@ -258,7 +258,7 @@ INSERT INTO "pais" (id, nome, nome_pt, sigla, bacen) VALUES
 (261, 'Saint-Barthélemy', 'São Bartolomeu', 'FR', 6939),
 (262, 'Saint Martin', 'São Martinho, Ilha de (Parte Holandesa)', 'SM', 6998),
 (263, 'Terres Australes et Antarctiques Françaises', 'Terras Austrais e Antárcticas Francesas', 'TF', 7811);
-ON CONFLICT (did) DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 --
 -- Inserindo dados na tabela "estado"
@@ -293,7 +293,7 @@ INSERT INTO "estado" (id, nome, uf, ibge, pais, ddd) VALUES
 (26, 'São Paulo', 'SP', 35, 1, '[11,12,13,14,15,16,17,18,19]'),
 (27, 'Tocantins', 'TO', 17, 1, '[63]'),
 (99, 'Exterior', 'EX', 99, NULL, NULL)
-ON CONFLICT (did) DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 
 
@@ -5898,4 +5898,4 @@ INSERT INTO "cidade" (id, nome, uf, ibge, lat_lon, latitude, longitude, cod_tom)
 (5607,	'Pinto Bandeira',	23,	4314548,	'(-29.0974998474120987,-51.4502983093262003)',	-2.9097499847412E+17,	-5.14502983093262E+17,	1160),
 (5608,	'Balneário Rincão',	24,	4220000,	'(-28.8313999176025,-49.2351989746094034)',	-288313999176025,	-4.92351989746094E+17,	0),
 (5609,	'Pescaria Brava',	24,	4212650,	'(-28.3966007232666016,-48.8863983154297017)',	-2.83966007232666E+17,	-4.88863983154297E+17,	0)
-ON CONFLICT (did) DO NOTHING;
+ON CONFLICT DO NOTHING;

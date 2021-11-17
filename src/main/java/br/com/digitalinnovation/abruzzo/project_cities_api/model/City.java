@@ -64,6 +64,19 @@ public class City implements Serializable {
     @Column(name = "longitude")
     private Double longitude;
 
+    @Column(name="cod_tom")
+    private int cod_tom;
+
+
+    public City(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location) {
+        this.id = id;
+        this.nome = nome;
+        this.uf = uf;
+        this.ibge = ibge;
+        this.geolocation = geolocation;
+        this.location = location;
+    }
+
     public Long getId() {
         return id;
     }
@@ -128,32 +141,30 @@ public class City implements Serializable {
         this.longitude = longitude;
     }
 
-    public City(Long id, String nome, Integer uf, Integer ibge, String geolocation, Point location) {
-        this.id = id;
-        this.nome = nome;
-        this.uf = uf;
-        this.ibge = ibge;
-        this.geolocation = geolocation;
-        this.location = location;
+    public int getCod_tom() {
+        return cod_tom;
+    }
+
+    public void setCod_tom(int cod_tom) {
+        this.cod_tom = cod_tom;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        City cidade = (City) o;
-        return Objects.equals(id, cidade.id) && Objects.equals(nome, cidade.nome) && Objects.equals(uf, cidade.uf) && Objects.equals(ibge, cidade.ibge) && Objects.equals(geolocation, cidade.geolocation) && Objects.equals(location, cidade.location) && Objects.equals(latitude, cidade.latitude) && Objects.equals(longitude, cidade.longitude);
+        City city = (City) o;
+        return cod_tom == city.cod_tom && Objects.equals(id, city.id) && Objects.equals(nome, city.nome) && Objects.equals(uf, city.uf) && Objects.equals(ibge, city.ibge) && Objects.equals(geolocation, city.geolocation) && Objects.equals(location, city.location) && Objects.equals(latitude, city.latitude) && Objects.equals(longitude, city.longitude);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, uf, ibge, geolocation, location, latitude, longitude);
+        return Objects.hash(id, nome, uf, ibge, geolocation, location, latitude, longitude, cod_tom);
     }
-
 
     @Override
     public String toString() {
-        return "Cidade{" +
+        return "City{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", uf=" + uf +
@@ -162,6 +173,7 @@ public class City implements Serializable {
                 ", location=" + location +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
+                ", cod_tom=" + cod_tom +
                 '}';
     }
 }

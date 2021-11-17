@@ -309,6 +309,10 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 #### ERROR HANDLING SPRING
 + https://www.baeldung.com/exception-handling-for-rest-with-spring
 
+#### Redirection controllers
++ https://www.baeldung.com/spring-redirect-and-forward
+
+
 #### INTERCEPTORS SPRING X CDI 
 + https://rhuanrocha.net/2019/01/06/creating-logger-with-aop-using-cdi-interceptor/
 + https://www.tutorialspoint.com/spring_boot/spring_boot_interceptor.htm

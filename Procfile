@@ -1,1 +1,1 @@
-web: java -jar target/project_cities_api-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=heroku -cp src\main\java br.com.digitalinnovation.abruzzo.project_cities_api.ProjectCitiesApiApplication
+web: java -jar target/project_cities_api-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=heroku -cp br.com.digitalinnovation.abruzzo.project_cities_api.ProjectCitiesApiApplication

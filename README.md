@@ -306,6 +306,8 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 + https://howtodoinjava.com/jpa/jpa-native-query-example-select/
 + https://zetcode.com/springboot/datajpanamedquery/
 
+#### ERROR HANDLING SPRING
++ https://www.baeldung.com/exception-handling-for-rest-with-spring
 
 #### INTERCEPTORS SPRING X CDI 
 + https://rhuanrocha.net/2019/01/06/creating-logger-with-aop-using-cdi-interceptor/

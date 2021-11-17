@@ -1,1 +1,1 @@
-web: java -cp -Dspring.profiles.active=heroku target/project_cities_api-0.0.1-SNAPSHOT.jar -Dloader.main=br.com.digitalinnovation.abruzzo.project_cities_api.ProjectCitiesApiApplication org.springframework.boot.loader.PropertiesLauncher
+web: java -jar target/project_cities_api-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=heroku -cp src\main\java br.com.digitalinnovation.abruzzo.project_cities_api.ProjectCitiesApiApplication

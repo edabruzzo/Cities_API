@@ -280,3 +280,6 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 #### Conversor String para Enum para Receber parametro Minusculo
 + https://www.baeldung.com/spring-enum-request-param
 + https://www.baeldung.com/spring-type-conversions
+
+#### Deploy da aplicação Springboot Maven no Heroku
++ https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku

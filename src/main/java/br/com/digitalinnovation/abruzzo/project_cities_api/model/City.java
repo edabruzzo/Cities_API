@@ -23,6 +23,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "cidade", catalog = "cities", schema = "public")
 @TypeDefs(value = {@TypeDef(name = "point", typeClass = PointType.class)})
+
 @NamedQueries({@NamedQuery(name = "City.findCitiesByName",
               query = "SELECT c FROM City c WHERE c.nome in (:nomeCidade1, :nomeCidade2) ")
 })

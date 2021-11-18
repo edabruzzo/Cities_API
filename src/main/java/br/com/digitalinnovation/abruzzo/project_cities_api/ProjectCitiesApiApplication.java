@@ -17,7 +17,6 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
-//@EntityScan("br.com.digitalinnovation.abruzzo.project_cities_api.model")
 public class ProjectCitiesApiApplication {
 
     public static void main(String[] args) {

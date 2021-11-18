@@ -363,7 +363,7 @@ public class ControladorBase {
                 "[<span class=\"hljs-meta\">INFO</span>] remote: -----&gt; heroku-maven-plugin app detected\n" +
                 "[<span class=\"hljs-meta\">INFO</span>] remote: -----&gt; Installing JDK <span class=\"hljs-number\">1</span>.<span class=\"hljs-number\">8</span>... done\n" +
                 "[<span class=\"hljs-meta\">INFO</span>] remote: -----&gt; Discovering process types\n" +
-                "[<span class=\"hljs-meta\">INFO</span>] remote:        Procfile declares types -&gt; web\n" +
+                "[<span class=\"hljs-meta\">INFO</span>] remote:        Procfile.USANDO_MAVEN declares types -&gt; web\n" +
                 "[<span class=\"hljs-meta\">INFO</span>] remote:\n" +
                 "[<span class=\"hljs-meta\">INFO</span>] remote: -----&gt; Compressing...\n" +
                 "[<span class=\"hljs-meta\">INFO</span>] remote:        Done: <span class=\"hljs-number\">183</span>.<span class=\"hljs-number\">6</span>M\n" +

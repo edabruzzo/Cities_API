@@ -1,8 +1,8 @@
 # Projeto Digital Innovation One Cities API
 ## Projeto entregue como requisito parcial do BootCamp TQI - JAVA DEVELOPER
 
-### Emmanuel de Oliveira Abruzzo - Novembro/2021
-    Deploy do projeto DIGITAL INNOVATION ONE - BOOTCAMP - TQI-JAVA-DEVELOPER - NOV/2021
+## Emmanuel de Oliveira Abruzzo - Novembro/2021
++ Deploy do projeto DIGITAL INNOVATION ONE - BOOTCAMP - TQI-JAVA-DEVELOPER - NOV/2021
 
 #### API SPRING REST PARA CÁLCULO DE DISTÂNCIA ENTRE CIDADES COM BASE NO RAIO DA TERRA - SUPORTE A CÁLCULO COM DIFERENTES MÉTODOS E MEDIDAS
 + https://fierce-atoll-34490.herokuapp.com/    deployed to Heroku
@@ -19,12 +19,10 @@
 + https://youtu.be/MM0CQyWEQ7s
 
 
-#Desenvolvimento #Developer
-#Spring
-#JAVA
-#DigitalInnovationOne #DigitalInnovation
-
-
+#### Desenvolvimento #Developer
+#### Spring
+##### JAVA
+#### Digital Innovation One
 
 
 ## Endpoints
@@ -34,10 +32,10 @@
 + http://localhost:8080/distances/Curitiba/150
 
 
-### Diferentes approachs (RequestParam / PathVariable) 
+### Diferentes approachs (RequestParam / PathVariable)
 * No Rest Controller temos sobrecarga de métodos no Backend (mesmo nome e diferentes assinaturas)
 
-##### Exemplo - Distância Curitiba -> Salvador
+#### Exemplo - Distância Curitiba -> Salvador
 616;"Salvador";5;2927408;"(-12.9717998504639,-38.5010986328125)";-1.29717998504638e+17;-385010986328125;3849
 2878;"Curitiba";18;4106902;"(-25.4195003509521,-49.2645988464355)";-2.5419500350952e+17;-4.92645988464354e+17;7535
 
@@ -57,20 +55,25 @@
 + https://fierce-atoll-34490.herokuapp.com/distances/by-cube?x1=-25.4195003509521&y1=-49.2645988464355&x2=-2.5419500350952e+17&y2=-4.92645988464354e+17
 
 + http://localhost:8080/distances/by-cube?x1=-25.4195003509521&y1=-49.2645988464355&x2=-2.5419500350952e+17&y2=-4.92645988464354e+17
+
 #### Calcula a distância entre duas cidades por Matemática pura em três opções de unidade de medida
-    
+
     O cálculo é executado utilizando medidas de raio da Terra e fórmulas matemáticas
     O parâmetro unidade de medida é opcional e, caso não especificado, será calculada a distância em KM
-    
-##### Devolve o cálculo em KM
+
+#### Devolve o cálculo em KM
 + https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/São Paulo/Curitiba/kilometers
 + localhost:8080/distances/calcularPorMatematicaPura/São Paulo/Curitiba/kilometers
 
-##### Devolve o cálculo em uma das medidas suportadas  
-    O que permite que o usuário passe o nome do Enum EarthRadius em letra minúscula é o StringToEnumEarthRadiusConverter
-    Unidades de medida suportadas: metros ou  kilômetros ou milhas
-+ https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/Curitiba/Salvador/{METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
-+ http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/{METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
+#### Devolve o cálculo em uma das medidas suportadas
+
+O que permite que o usuário passe o nome do Enum EarthRadius em letra minúscula é o StringToEnumEarthRadiusConverter
+Unidades de medida suportadas: metros ou  kilômetros ou milhas
++ https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/Curitiba/Salvador/{unidadeMedida}
+
++ http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/unidadeMedida}
+
+unidadeMedida={METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}
 
 #### Lista Cidades
 + https://fierce-atoll-34490.herokuapp.com/cities
@@ -107,7 +110,7 @@ Salvador
     public Double calculaDistanciaEntreCidadesUsandoMatematicaPura(String nomeCidade1, String nomeCidade2, EarthRadius unit) {
 
 
-#### Exploração de declaração de @NativeNamedQueries nas Classes de Entidade, na camada modelo  
+#### Exploração de declaração de @NativeNamedQueries nas Classes de Entidade, na camada modelo
 
     O projeto explora também o conceito de Queries nomeadas declaradas na 
     Classe de entidade e também Queries declaradas na camada Repository (DAO)
@@ -116,15 +119,15 @@ Salvador
 ## Requirements
 
 * Linux
-    Meu sistema já é Ubuntu (release "Bionic")
+  Meu sistema já é Ubuntu (release "Bionic")
 * Git
 * Java 8
 * Docker
-  
+
 * IntelliJ Community ou NetBeans
-  * Desenvolvido inicialmente no NetBeans e depois migrei para o IntelliJ Idea
-  * Adorei o IntelliJ, pois já estava muito familiarizado com o PyCharm da JetBrains
-  * Sempre desenvolvi em NetBeans, mas depois deste BootCamp, começo a considerar migrar para o IntelliJ
+    * Desenvolvido inicialmente no NetBeans e depois migrei para o IntelliJ Idea
+    * Adorei o IntelliJ, pois já estava muito familiarizado com o PyCharm da JetBrains
+    * Sempre desenvolvi em NetBeans, mas depois deste BootCamp, começo a considerar migrar para o IntelliJ
 
 * Heroku CLI
 
@@ -134,8 +137,9 @@ Salvador
 
 * [Postgres Docker Hub](https://hub.docker.com/_/postgres)
 
-```shell script
+```
 docker run --name cities-db -d -p 5432:5432 -e POSTGRES_USER=postgres_user_city -e POSTGRES_PASSWORD=super_password -e POSTGRES_DB=cities postgres
+
 ```
 
 ### Populate
@@ -143,19 +147,22 @@ docker run --name cities-db -d -p 5432:5432 -e POSTGRES_USER=postgres_user_city 
 * [data](https://github.com/chinnonsantos/sql-paises-estados-cidades/tree/master/PostgreSQL)
 
 
-#### Atenção ! Se você possui o Postgresql instalado na maquina local das duas uma:
-1) Terá que parar o serviço do postgres que roda na porta 5432 antes de rodar a imagem docker
-```shell script
+###### Atenção ! Se você possui o Postgresql instalado na maquina local das duas uma:
+
+* Terá que parar o serviço do postgres que roda na porta 5432 antes de rodar a imagem docker
+
+```
 /etc/init.d/postgres stop
 ```
 
-3) Mudar a porta exposta pela imagem para não mapear a 5432 que já estará em uso no seu banco local
+* Mudar a porta exposta pela imagem para não mapear a 5432 que já estará em uso no seu banco local
 
 #### Escrevi um artigo na DIO a respeito do conflito de portas:
+
 + https://digitalinnovation.one/artigos/avoid-port-conflicts-when-configuring-postgresql-image-from-docker-on-your-local-machine-with-another-postgresql-instance
 
 
-```shell script
+```
 cd /home/$USER/NetBeansProjects/DigitalOne_2/project_cities_api/scripts/PostgreSQL &&
 /etc/init.d/postgresql stop && sudo docker run -it --rm --net=host -v $PWD:/tmp postgres /bin/bash
 
@@ -163,8 +170,10 @@ cd tmp/ && for file in *.sql; do psql -U postgres_user_city -h localhost -p 5432
 
 psql -h localhost -U postgres_user_city cities
 
-# Transportadas para um arquivo *.sql para serem executadas no loop for acima
---CREATE EXTENSION cube; 
+##### Transportadas para um arquivo changelog de migração *.sql para serem executadas no loop for acima
+
+```
+--CREATE EXTENSION cube;
 --CREATE EXTENSION earthdistance;
 ```
 
@@ -176,7 +185,7 @@ psql -h localhost -U postgres_user_city cities
 
 ### Access
 
-```shell script
+```
 docker exec -it cities-db /bin/bash
 
 psql -U postgres_user_city cities
@@ -220,12 +229,12 @@ select earth_distance(
 
 + Java 8
 + MAVEN Project
-  + Devido à minha familiaridade, optei por desenvolver e construir o projeto e gerenciar dependências com Maven
+    + Devido à minha familiaridade, optei por desenvolver e construir o projeto e gerenciar dependências com Maven
 + Jar
 + Spring Web
 + Spring Data JPA
 + PostgreSQL Driver
-    Versão: 42.2.24
+  Versão: 42.2.24
 ### Spring Data
 
 * [jpa.query-methods](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)
@@ -258,7 +267,7 @@ select earth_distance(
 
 + http://google.github.io/styleguide/javaguide.html
 
-```shell script
+```
 wget https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
 ```
 
@@ -280,9 +289,9 @@ wget https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/res
 + https://www.oracle.com/br/technical-resources/articles/dsl/crud-rest-sb2-hibernate.html
 
 + "O Spring automaticamente fornece a injeção de dependência. Este exemplo não está usando a anotação @Autowired pois não é mais considerado
-uma boa prática para injeção de dependência de atributos obrigatórios. Desde a versão 4 do
-Spring a prática recomendada é o uso de injeção de dependência por construtor
-(as IDEs mais modernas inclusive apresentam um alerta quando fazemos o uso do @Autowired)."
+  uma boa prática para injeção de dependência de atributos obrigatórios. Desde a versão 4 do
+  Spring a prática recomendada é o uso de injeção de dependência por construtor
+  (as IDEs mais modernas inclusive apresentam um alerta quando fazemos o uso do @Autowired)."
 
 
 #### SHELL JAVA
@@ -303,7 +312,7 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 
 #### GEOMAPPING - POSTGRESQL X HIBERNATE
 + https://stackoverflow.com/questions/27624940/map-a-postgis-geometry-point-field-with-hibernate-on-spring-boot
-+ https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#spatial 
++ https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#spatial
 + https://www.baeldung.com/hibernate-spatial
 + https://stackoverflow.com/questions/31440496/hibernate-spatial-5-geometrytype
 + https://github.com/Wisienkas/springJpaGeo
@@ -321,7 +330,7 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 + https://www.baeldung.com/spring-redirect-and-forward
 
 
-#### INTERCEPTORS SPRING X CDI 
+#### INTERCEPTORS SPRING X CDI
 + https://rhuanrocha.net/2019/01/06/creating-logger-with-aop-using-cdi-interceptor/
 + https://www.tutorialspoint.com/spring_boot/spring_boot_interceptor.htm
 + https://stackoverflow.com/questions/31082981/spring-boot-adding-http-request-interceptors
@@ -331,7 +340,8 @@ Spring a prática recomendada é o uso de injeção de dependência por construt
 + https://www.baeldung.com/spring-type-conversions
 
 #### Deploy da aplicação Springboot Maven no Heroku
-Usando o plugin Heroku do Maven
+    Usando o plugin Heroku do Maven
+
 ```
 $ mvn clean dependency:copy-dependencies package heroku:deploy
 
@@ -362,8 +372,8 @@ $ mvn clean dependency:copy-dependencies package heroku:deploy
 [INFO] Total time:  04:41 min
 [INFO] Finished at: 2021-11-17T09:53:40-03:00
 [INFO] ------------------------------------------------------------------------
-
-
+```
+```
 $ heroku logs --tail
 
 
@@ -420,21 +430,24 @@ $ heroku logs --tail
 + https://devcenter.heroku.com/articles/release-phase
 
 #### Conexão Banco de Dados PostgreSQL Heroku Add-on
-Heroku configura no ambiente uma variável com URL para conexão ao banco de dados criado na AWS:
++ Heroku configura no ambiente uma variável com URL para conexão ao banco de dados criado na AWS:
 
+```
 heroku config
 
 === fierce-atoll-34490 Config Vars
 DATABASE_URL: postgres://qmghvbmblxrlba:f623f1e760b51ab39cfc64a8549e62a1f814346dc203d252e0b5699343b298a8@ec2-3-227-149-67.compute-1.amazonaws.com:5432/d7q52pdubr9p5l
-    
-Você pode se conectar ao banco via psql utilizando estas credenciais 
+```
+
+Você pode se conectar ao banco via psql utilizando estas credenciais
 e a senha que pode ser vista no seu dashboard no Heroku Dev Center
 
-```shell script 
-        heroku pg:psql postgresql-clean-54438 --app fierce-atoll-34490
+```
+heroku pg:psql postgresql-clean-54438 --app fierce-atoll-34490
 ```
 Outro meio de se conectar diretamente com psql com as credenciais de banco e host fornecidas pelo próprio Heroku
 
+```
 $ heroku pg:info
 
 === DATABASE_URL
@@ -450,3 +463,7 @@ Fork/Follow:           Unsupported
 Rollback:              Unsupported
 Continuous Protection: Off
 Add-on:                postgresql-clean-54438
+```
+
+#### Conversor MarkDown to HTML online
++ https://markdowntohtml.com/

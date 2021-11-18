@@ -24,13 +24,6 @@ public class CityController {
     @Autowired
     private CityRepository repository;
 
-    /*
-    private CityRepository repository;
-    public CityController(CityRepository cityRepository) {
-        this.repository = cityRepository;
-    }
-     */
-
     @GetMapping
     public Page<City> findAll(Pageable pageable) {
         return (Page<City>) this.repository.findAll(pageable);

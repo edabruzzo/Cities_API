@@ -1,4 +1,4 @@
-package br.com.digitalinnovation.abruzzo.project_cities_api.interceptors;
+package br.com.digitalinnovation.abruzzo.project_cities_api.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

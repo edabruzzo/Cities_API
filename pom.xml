@@ -41,6 +41,30 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+        </dependency>
+        -->
+        <!-- For using JSP
+        https://cursos.alura.com.br/forum/topico-jsp-ao-inves-do-thymeleaf-37761?gclid=CjwKCAiA7dKMBhBCEiwAO_crFLbrU-yyhzLlY_FObUTBZX6_3TuaDa-Dtblzp60xzSqOl1vrPa-LwRoCxq4QAvD_BwE
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>-->
+        <!-- If you want to use JSTL
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -108,6 +132,7 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
@@ -125,6 +150,7 @@
                     <archive>
                         <manifest>
                             <mainClass>br.com.digitalinnovation.abruzzo.project_cities_api.ProjectCitiesApiApplication</mainClass>
+                            <addClasspath>true</addClasspath>
                         </manifest>
                     </archive>
                 </configuration>
@@ -139,7 +165,7 @@
                     <processTypes>
                         <!-- Tell Heroku how to launch your application -->
                         <!-- You might have to remove the ./ in front -->
-                        <web>java -Dserver.port=$PORT -jar -Dspring.profiles.active=heroku target/project_cities_api-0.0.1-SNAPSHOT.jar</web>
+                        <web>web: java -Dserver.port=$PORT -jar -cp br.com.digitalinnovation.abruzzo.project_cities_api.ProjectCitiesApiApplication.java -Dspring.profiles.active=heroku target/project_cities_api-0.0.1-SNAPSHOT.jar</web>
                         </processTypes>
                 </configuration>
             </plugin>

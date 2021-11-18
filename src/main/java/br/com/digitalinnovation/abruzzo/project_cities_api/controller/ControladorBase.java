@@ -28,7 +28,7 @@ public class ControladorBase {
                 "<html xmlns=\"http://www.w3.org/1999/xhtml\"  >\n" +
                 "<head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
-                "    <title>API para consultas GEO Espaciais de cidades do Brasiol</title>\n" +
+                "    <title>API para consultas GEO Espaciais de cidades do Brasil</title>\n" +
                 "</head>\n" +
                 "<body><h1 id=\"projeto-digital-innovation-one-cities-api\">Projeto Digital Innovation One Cities API</h1>\n" +
                 "<h2 id=\"projeto-entregue-como-requisito-parcial-do-bootcamp-tqi-java-developer\">Projeto entregue como requisito parcial do BootCamp TQI - JAVA DEVELOPER</h2>\n" +

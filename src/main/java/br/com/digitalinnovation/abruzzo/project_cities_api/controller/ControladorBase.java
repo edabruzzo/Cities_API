@@ -58,7 +58,7 @@ public class ControladorBase {
                 "<h4 id=\"lista-cidades-pr-ximas-de-uma-determinada-cidade-nomecidadefrom-num-determinado-raio-em-kilometros-raiodistancia-\">Lista cidades próximas de uma determinada cidade (nomeCidadeFrom) num determinado raio em kilometros (raioDistancia)</h4>\n" +
                 "<ul>\n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/distances/Curitiba/100\">https://fierce-atoll-34490.herokuapp.com/distances/Curitiba/100</a></li>\n" +
-                "    <li><a href=\"http://localhost:8080/distances/Curitiba/150\">http://localhost:8080/distances/Curitiba/150</a></li>\n" +
+                "    \n" +
                 "</ul>\n" +
                 "<h3 id=\"diferentes-approachs-requestparam-pathvariable-\">Diferentes approachs (RequestParam / PathVariable)</h3>\n" +
                 "<ul>\n" +
@@ -70,12 +70,12 @@ public class ControladorBase {
                 "<h4 id=\"calcula-dist-ncia-entre-cidades-baseadas-em-pontos-por-idcidade\">Calcula distância entre cidades baseadas em pontos por idCidade</h4>\n" +
                 "<ul>\n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/distances/by-points?from=616&amp;to=278\">https://fierce-atoll-34490.herokuapp.com/distances/by-points?from=616&amp;to=278</a></li>\n" +
-                "    <li><a href=\"http://localhost:8080/distances/by-points?from=616&amp;to=278\">http://localhost:8080/distances/by-points?from=616&amp;to=278</a></li>\n" +
+                "    \n" +
                 "</ul>\n" +
                 "<h4 id=\"calcula-dist-ncia-entre-cidades-baseadas-em-pontos-por-nome\">Calcula distância entre cidades baseadas em pontos por Nome</h4>\n" +
                 "<ul>\n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/distances/by-points/Curitiba/Salvador\">https://fierce-atoll-34490.herokuapp.com/distances/by-points/Curitiba/Salvador</a></li>\n" +
-                "    <li><a href=\"http://localhost:8080/distances/by-points/Curitiba/Salvador\">http://localhost:8080/distances/by-points/Curitiba/Salvador</a></li>\n" +
+                "    \n" +
                 "</ul>\n" +
                 "<h4 id=\"calcula-dist-ncia-entre-cidades-baseadas-em-cube-e-coordenadas-de-latitude-e-longitude\">Calcula distância entre cidades baseadas em Cube e coordenadas de Latitude e Longitude</h4>\n" +
                 "<pre><code><span class=\"hljs-attr\">X1</span> = Latitude da cidade <span class=\"hljs-number\">1</span> / Y1 = Longitude cidade <span class=\"hljs-number\">1</span>\n" +
@@ -83,8 +83,7 @@ public class ControladorBase {
                 "</code></pre><ul>\n" +
                 "    <li><p><a href=\"https://fierce-atoll-34490.herokuapp.com/distances/by-cube?x1=-25.4195003509521&amp;y1=-49.2645988464355&amp;x2=-2.5419500350952e+17&amp;y2=-4.92645988464354e+17\">https://fierce-atoll-34490.herokuapp.com/distances/by-cube?x1=-25.4195003509521&amp;y1=-49.2645988464355&amp;x2=-2.5419500350952e+17&amp;y2=-4.92645988464354e+17</a></p>\n" +
                 "    </li>\n" +
-                "    <li><p><a href=\"http://localhost:8080/distances/by-cube?x1=-25.4195003509521&amp;y1=-49.2645988464355&amp;x2=-2.5419500350952e+17&amp;y2=-4.92645988464354e+17\">http://localhost:8080/distances/by-cube?x1=-25.4195003509521&amp;y1=-49.2645988464355&amp;x2=-2.5419500350952e+17&amp;y2=-4.92645988464354e+17</a></p>\n" +
-                "    </li>\n" +
+                "    \n" +
                 "</ul>\n" +
                 "<h4 id=\"calcula-a-dist-ncia-entre-duas-cidades-por-matem-tica-pura-em-tr-s-op-es-de-unidade-de-medida\">Calcula a distância entre duas cidades por Matemática pura em três opções de unidade de medida</h4>\n" +
                 "<pre><code>O cálculo é executado utilizando medidas de raio da Terra e fórmulas matemáticas\n" +
@@ -92,7 +91,7 @@ public class ControladorBase {
                 "</code></pre><h4 id=\"devolve-o-c-lculo-em-km\">Devolve o cálculo em KM</h4>\n" +
                 "<ul>\n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/São\">https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/São</a> Paulo/Curitiba/kilometers</li>\n" +
-                "    <li>localhost:8080/distances/calcularPorMatematicaPura/São Paulo/Curitiba/kilometers</li>\n" +
+                "    \n" +
                 "</ul>\n" +
                 "<h4 id=\"devolve-o-c-lculo-em-uma-das-medidas-suportadas\">Devolve o cálculo em uma das medidas suportadas</h4>\n" +
                 "<p>O que permite que o usuário passe o nome do Enum EarthRadius em letra minúscula é o StringToEnumEarthRadiusConverter\n" +
@@ -100,32 +99,31 @@ public class ControladorBase {
                 "<ul>\n" +
                 "    <li><p><a href=\"https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/Curitiba/Salvador/{unidadeMedida}\">https://fierce-atoll-34490.herokuapp.com/distances/calcularPorMatematicaPura/Curitiba/Salvador/{unidadeMedida}</a></p>\n" +
                 "    </li>\n" +
-                "    <li><p><a href=\"http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/unidadeMedida}\">http://localhost:8080/distances/calcularPorMatematicaPura/Curitiba/Salvador/unidadeMedida}</a></p>\n" +
-                "    </li>\n" +
+                "   \n" +
                 "</ul>\n" +
                 "<p>unidadeMedida={METERS/meters ou  KILOMETERS/kilometers ou MILES/miles}</p>\n" +
                 "<h4 id=\"lista-cidades\">Lista Cidades</h4>\n" +
                 "<ul>\n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/cities\">https://fierce-atoll-34490.herokuapp.com/cities</a></li>\n" +
-                "    <li><a href=\"http://localhost:8080/cities\">http://localhost:8080/cities</a></li>\n" +
+                "    \n" +
                 "</ul>\n" +
                 "<p>Salvador</p>\n" +
                 "<ul>\n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/cities/616\">https://fierce-atoll-34490.herokuapp.com/cities/616</a></li>\n" +
-                "    <li><a href=\"http://localhost:8080/cities/616\">http://localhost:8080/cities/616</a></li>\n" +
+                "    \n" +
                 "</ul>\n" +
                 "<h4 id=\"lista-estados\">Lista Estados</h4>\n" +
                 "<ul>\n" +
-                "    <li><a href=\"http://localhost:8080/states\">http://localhost:8080/states</a></li>\n" +
+                "    \n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/states\">https://fierce-atoll-34490.herokuapp.com/states</a></li>\n" +
-                "    <li><a href=\"http://localhost:8080/states/{id}\">http://localhost:8080/states/{id}</a></li>\n" +
+                "    \n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/states{id}\">https://fierce-atoll-34490.herokuapp.com/states{id}</a></li>\n" +
                 "</ul>\n" +
                 "<h4 id=\"lista-pa-ses\">Lista Países</h4>\n" +
                 "<ul>\n" +
-                "    <li><a href=\"http://localhost:8080/countries\">http://localhost:8080/countries</a></li>\n" +
+                "    \n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/states\">https://fierce-atoll-34490.herokuapp.com/states</a></li>\n" +
-                "    <li><a href=\"http://localhost:8080/countries/{id}\">http://localhost:8080/countries/{id}</a></li>\n" +
+                "    \n" +
                 "    <li><a href=\"https://fierce-atoll-34490.herokuapp.com/states/{id}\">https://fierce-atoll-34490.herokuapp.com/states/{id}</a></li>\n" +
                 "</ul>\n" +
                 "<h4 id=\"explora-o-de-conceitos-de-orienta-o-a-objeto\">EXPLORAÇÃO DE CONCEITOS DE ORIENTAÇÃO A OBJETO</h4>\n" +

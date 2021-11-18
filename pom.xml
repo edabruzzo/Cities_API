@@ -150,7 +150,6 @@
                     <archive>
                         <manifest>
                             <mainClass>br.com.digitalinnovation.abruzzo.project_cities_api.ProjectCitiesApiApplication</mainClass>
-                            <addClasspath>true</addClasspath>
                         </manifest>
                     </archive>
                 </configuration>

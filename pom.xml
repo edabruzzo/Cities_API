@@ -162,11 +162,11 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Use your own application name -->
-                    <processTypes>
-                        <!-- Tell Heroku how to launch your application -->
-                        <!-- You might have to remove the ./ in front -->
+                    <!--<processTypes>
+                         Tell Heroku how to launch your application -->
+                        <!-- You might have to remove the ./ in front
                         <web>java -Dserver.port=$PORT -jar -cp br.com.digitalinnovation.abruzzo.project_cities_api.ProjectCitiesApiApplication.java -Dspring.profiles.active=heroku target/project_cities_api-0.0.1-SNAPSHOT.jar</web>
-                        </processTypes>
+                        </processTypes>-->
                 </configuration>
             </plugin>
       <plugin>

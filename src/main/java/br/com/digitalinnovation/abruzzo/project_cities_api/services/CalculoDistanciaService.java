@@ -16,39 +16,39 @@ import static java.lang.Math.*;
 @Service
 public class CalculoDistanciaService implements ICalculaDistanciaService {
 
-    Logger logger = LoggerFactory.getLogger(CalculoDistanciaService.class);
+    Logger log4jLog = LoggerFactory.getLogger(CalculoDistanciaService.class);
 
     @Autowired
     private CityRepository repository;
 
     @Override
     public Double calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(Long idCidade1, Long idCidade2) {
-        this.logger.info("calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance({}, {}, {})", idCidade1, idCidade2);
+        this.log4jLog.debug("calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance({}, {})", idCidade1, idCidade2);
         return repository.calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(idCidade1, idCidade2);
     }
 
     @Override
     public Double calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(String nomeCidade1, String nomeCidade2) {
-        this.logger.info("calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance({}, {}, {})", nomeCidade1, nomeCidade2);
+        this.log4jLog.info("calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance({}, {})", nomeCidade1, nomeCidade2);
         return repository.calculaDistanciaEntreCidades_ByPostgresExtension_EarthDistance(nomeCidade1, nomeCidade2);
     }
 
 
     @Override
     public Double calculaDistanciaEntreCidades_ByPostgresExtension_Cube(double x1, double y1, double x2, double y2) {
-        this.logger.info("calculaDistanciaEntreCidades_ByPostgresExtension_Cube({}, {}, {}, {})", x1, y1, x2, y2);
+        this.log4jLog.info("calculaDistanciaEntreCidades_ByPostgresExtension_Cube({}, {}, {}, {})", x1, y1, x2, y2);
         return repository.calculaDistanciaEntreCidades_ByPostgresExtension_Cube(x1, y1, x2, y2);
     }
 
     @Override
     public List<Object> retornaListaCidades_RaioDistancia_ByPoint(String nomeCidadeFrom, double raioDistancia) {
-        this.logger.info("retornaListaCidades_RaioDistancia_ByPoint({}, {})", nomeCidadeFrom, raioDistancia);
+        this.log4jLog.info("retornaListaCidades_RaioDistancia_ByPoint({}, {})", nomeCidadeFrom, raioDistancia);
         return repository.retornaListaCidades_RaioDistancia_ByPoint(nomeCidadeFrom, raioDistancia);
     }
 
     @Override
     public Double calculaDistanciaEntreCidadesUsandoMatematicaPura(Long idCidade1, Long idCidade2, EarthRadius unit) {
-        this.logger.info("calculaDistanciaEntreCidadesUsandoMatematicaPura({}, {}, {})", idCidade1, idCidade2, unit);
+        this.log4jLog.info("calculaDistanciaEntreCidadesUsandoMatematicaPura({}, {}, {})", idCidade1, idCidade2, unit);
         EarthRadius unidadeMedida = unit == null ? EarthRadius.KILOMETERS : unit;
         final List<City> cities = this.repository.findAllById((Arrays.asList(idCidade1, idCidade2)));
         final Double[] location1 = StringLocationUtils.transform(cities.get(0).getGeolocation());
@@ -58,7 +58,7 @@ public class CalculoDistanciaService implements ICalculaDistanciaService {
 
     @Override
     public Double calculaDistanciaEntreCidadesUsandoMatematicaPura(String nomeCidade1, String nomeCidade2, EarthRadius unit) {
-        this.logger.info("calculaDistanciaEntreCidadesUsandoMatematicaPura({}, {}, {})", nomeCidade1, nomeCidade2, unit);
+        this.log4jLog.info("calculaDistanciaEntreCidadesUsandoMatematicaPura({}, {}, {})", nomeCidade1, nomeCidade2, unit);
         EarthRadius unidadeMedida = unit == null ? EarthRadius.KILOMETERS : unit;
         final List<City> cities = this.repository.findCitiesByName(nomeCidade1, nomeCidade2);
         final Double[] location1 = StringLocationUtils.transform(cities.get(0).getGeolocation());

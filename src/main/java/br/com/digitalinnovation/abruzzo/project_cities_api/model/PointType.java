@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.usertype.UserType;
@@ -14,7 +15,7 @@ public class PointType implements UserType {
 
     @Override
     public int[] sqlTypes() {
-        return new int[] {java.sql.Types.OTHER};
+        return new int[]{java.sql.Types.OTHER};
     }
 
     @Override
@@ -35,10 +36,6 @@ public class PointType implements UserType {
     @Override
     public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session,
                               Object owner) throws HibernateException, SQLException {
-    /* 1st
-    Object object = rs.getObject(names[0]);
-    Double[] points = StringLocationUtils.transform(object.toString());
-    return new Point(points[0], points1);*/
 
         /* 2nd */
         PGpoint value = (PGpoint) rs.getObject(names[0]);
@@ -49,7 +46,7 @@ public class PointType implements UserType {
     public void nullSafeSet(PreparedStatement st, Object value, int index,
                             SharedSessionContractImplementor session)
             throws HibernateException, SQLException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override

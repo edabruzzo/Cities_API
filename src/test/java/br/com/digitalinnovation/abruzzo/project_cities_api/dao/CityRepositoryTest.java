@@ -1,4 +1,4 @@
-package br.com.digitalinnovation.abruzzo.project_cities_api;
+package br.com.digitalinnovation.abruzzo.project_cities_api.dao;
 
 import br.com.digitalinnovation.abruzzo.project_cities_api.dao.CityRepository;
 import br.com.digitalinnovation.abruzzo.project_cities_api.model.City;
@@ -21,7 +21,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class CalculoDistanciaServiceTest {
+class CityRepositoryTest {
 
     @Autowired
     private CalculoDistanciaService service;
@@ -39,21 +39,21 @@ class CalculoDistanciaServiceTest {
     }
 
     @Test
-    public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosIdsCidadesMetros() {
+    void deveriaCalcularDistanciaUsandoMatematicaPuraPelosIdsCidadesMetros() {
         given(cityRepository.findAllById(anyList())).willReturn(Arrays.asList(ibate, saoCarlos));
         Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(4929L, 5254L, EarthRadius.METERS);
         assertThat(distance).isEqualTo(12426.810463475855);
     }
 
     @Test
-    public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosIdsCidadesPorKM() {
+    void deveriaCalcularDistanciaUsandoMatematicaPuraPelosIdsCidadesPorKM() {
         given(cityRepository.findAllById(anyList())).willReturn(Arrays.asList(ibate, saoCarlos));
         Double distance = service.calculaDistanciaEntreCidadesUsandoMatematicaPura(4929L, 5254L, EarthRadius.KILOMETERS);
         assertThat(distance).isCloseTo(12.426, offset(0.001d));
     }
 
     @Test
-    public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosIdsCidadesPorMilhas() {
+    void deveriaCalcularDistanciaUsandoMatematicaPuraPelosIdsCidadesPorMilhas() {
         given(cityRepository.findAllById(anyList())).willReturn(Arrays.asList(ibate, saoCarlos));
         Double distance = service.calculaDistanciaEntreCidadesUsandoMatematicaPura(4929L, 5254L, EarthRadius.MILES);
         assertThat(distance).isCloseTo(7.71, offset(0.01d));
@@ -61,7 +61,7 @@ class CalculoDistanciaServiceTest {
 
 
     @Test
-    public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesMetros() {
+    void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesMetros() {
         when(cityRepository.findCitiesByName(anyString(), anyString())).thenReturn(Arrays.asList(this.ibate, this.saoCarlos));
         Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(this.ibate.getNome(), this.saoCarlos.getNome(), EarthRadius.METERS);
         assertThat(distance).isEqualTo(12426.810463475855);
@@ -69,7 +69,7 @@ class CalculoDistanciaServiceTest {
 
 
     @Test
-    public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesPorKM() {
+    void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesPorKM() {
         when(cityRepository.findCitiesByName(anyString(), anyString())).thenReturn(Arrays.asList(this.ibate, this.saoCarlos));
         Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(this.ibate.getNome(), this.saoCarlos.getNome(), EarthRadius.KILOMETERS);
         assertThat(distance).isEqualTo(12.426810402590373);
@@ -77,7 +77,7 @@ class CalculoDistanciaServiceTest {
 
 
     @Test
-    public void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesPorMilhas() {
+    void deveriaCalcularDistanciaUsandoMatematicaPuraPelosNomesCidadesPorMilhas() {
         when(cityRepository.findCitiesByName(anyString(), anyString())).thenReturn(Arrays.asList(this.ibate, this.saoCarlos));
         Double distance = this.service.calculaDistanciaEntreCidadesUsandoMatematicaPura(
                 this.ibate.getNome(),
